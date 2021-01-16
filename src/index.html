@@ -19,7 +19,18 @@
       <h2>Trips</h2>
       <h3>Present</h3>
         <div class="trips-box">
-
+          <div class="destinations-box stacked">
+            <h3>Location</h3>
+            <img src="" alt="">
+            <label for="">Book</label>
+            <input type="checkbox">
+          </div>
+          <div class="destinations-box stacked">
+            <h3>Location</h3>
+            <img src="" alt="">
+            <label for="">Book</label>
+            <input type="checkbox">
+          </div>
         </div>
       <h3>Pending</h3>
         <div class="trips-box">
@@ -36,7 +47,7 @@
     </aside>
     <form action="">
       <h2>Request A Trip!</h2>
-      <div>
+      <div class="stacked">
         <label for="date">Date</label>
         <input type="text" name="date" placeholder="Date">
         <label for="duration">Duration</label>
@@ -50,9 +61,17 @@
     </form>
     <main>
       <h2>All Destinations</h2>
-        <div class="destination-box">
+        <section class="destinations-wrapper">
+          <div class="destinations-box stacked">
+            <h3>Location</h3>
+            <img src="" alt="">
+            <div>
+              <label for="">Book</label>
+              <input type="checkbox">
+            </div>
+          </div>
 
-        </div>
+        </section>
     </main>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
