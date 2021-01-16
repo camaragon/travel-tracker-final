@@ -10,9 +10,9 @@ $primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,1
  
 }
 
-* {
-  border: 1px solid red;
-}
+// * {
+//   border: 1px solid red;
+// }
 
 .stacked {
   display: flex;
@@ -24,6 +24,7 @@ body {
   // background: $primary-background;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
+  // grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas:
   "header header"
   "aside form"
@@ -40,6 +41,9 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #DE6449;
+  border-bottom: 3px solid black;
+  
 }
 
 // SIDEBAR
@@ -50,6 +54,10 @@ aside {
   align-items: center;
   justify-content: space-around;
   overflow:scroll;
+  grid-row: 2 / 5;
+  background-color: #407899;
+  border-bottom: 3px solid black;
+  border-right: 1px solid black;
 }
 
 .trips-box {
@@ -57,7 +65,12 @@ aside {
   height: 400px;
   display: flex;
   flex-direction: column;
+  background-color: #FFFFF2;
   // overflow:scroll;
+}
+
+.trips {
+  border-bottom: 3px solid black;
 }
 
 // TRIP FORM
@@ -67,6 +80,9 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  grid-row: 2 / 3;
+  background-color: #FFFFF2;
+  border-bottom: 3px solid black;
 }
 
 // ALL DESTINATIONS
@@ -75,13 +91,12 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  // grid-row: 3 / 4;
+  background-color: #407899;
 }
 
-.destinations {
-  grid-row: 2 / 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.destination-header {
+  border-bottom: 3px solid black;
 }
 
 .destinations-wrapper {
@@ -89,6 +104,7 @@ main {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  background-color: #FFFFF2;
 }
 
 .destinations-box {
@@ -96,4 +112,12 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  background-color: #DE6449;
+  
+  
+}
+
+.destination-img {
+  max-height: 100%;
+  max-width: 100%;
 }
