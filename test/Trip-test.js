@@ -62,3 +62,10 @@ describe('Trip', () => {
         expect(trip2.suggestedActivities).to.eql([]);
     });
 });
+
+
+// calculateTotalTripTotalCost
+// input: array of trip objects and an array of destination objects
+// output: trip object with new property of totalCost
+// methods: filter and reduce
+// filter the destination objects to the id of the trip 

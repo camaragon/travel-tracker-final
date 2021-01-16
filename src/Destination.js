@@ -1,11 +1,10 @@
 class Destination {
-    constructor(destination) {
-        this.id = destination.id;
-        this.location = destination.destination;
-        this.estimatedLodgingCostPerDay = destination.estimatedLodgingCostPerDay;
-        this.estimatedFlightCostPerPerson = destination.estimatedFlightCostPerPerson;
-        this.image = destination.image;
-        this.alt = destination.alt;
+    constructor(destinationData) {
+        this.allDestinations = destinationData;
+    }
+
+    findDestinationById(id) {
+        return this.allDestinations.find(destination => destination.id === id);
     }
 };
 
