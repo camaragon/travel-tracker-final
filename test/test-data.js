@@ -93,7 +93,7 @@ const destinationData = [{
 }
 ]
 
-const tripsData = [{
+const tripData = [{
     id: 1,
     userID: 44,
     destinationID: 49,
@@ -145,4 +145,4 @@ const tripsData = [{
 }
 ]
 
-export {travelerData, destinationData, tripsData};
+export {travelerData, destinationData, tripData};
