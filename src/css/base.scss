@@ -2,6 +2,98 @@
 $primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
 ;
 
+@mixin displayFlex($flex-direction, $align-items, $justify-content) {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+ 
+}
+
+* {
+  border: 1px solid red;
+}
+
+.stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 body {
-  background: $primary-background;
+  // background: $primary-background;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  grid-template-areas:
+  "header header"
+  "aside form"
+  "aside main";
+  height: 100vh;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+// HEADER
+header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// SIDEBAR
+aside {
+  grid-area: aside;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  overflow:scroll;
+}
+
+.trips-box {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  // overflow:scroll;
+}
+
+// TRIP FORM
+form {
+  grid-area: form;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+// ALL DESTINATIONS
+main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.destinations {
+  grid-row: 2 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.destinations-wrapper {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.destinations-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
