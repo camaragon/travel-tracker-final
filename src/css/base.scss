@@ -9,13 +9,16 @@ $primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,1
 body {
   // background: $primary-background;
   display: grid;
-  grid-template-columns: 1fr fr;
+  // grid-template-columns: 1fr fr;
   grid-template-areas:
   "header header"
   "aside form"
+  "aside main"
   "aside main";
   height: 100vh;
   width: auto;
+  margin: 0;
+  padding: 0;
 }
 
 // HEADER
@@ -32,15 +35,22 @@ aside {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 }
 
 // TRIP FORM
 form {
   grid-area: form;
-  display: 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
 // ALL DESTINATIONS
 main {
   grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
