@@ -2,24 +2,33 @@
 $primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
 ;
 
+* {
+  border: 1px solid red;
+}
+
 body {
-  background: $primary-background;
+  // background: $primary-background;
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1fr fr;
   grid-template-areas:
   "header header"
-  "aside main"
+  "aside form"
   "aside main";
   height: 100vh;
   width: auto;
 }
 
+// HEADER
 header {
   grid-area: header;
 }
 
 aside {
   grid-area: aside;
+}
+
+form {
+  grid-area: form;
 }
 
 main {

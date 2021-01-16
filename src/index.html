@@ -8,6 +8,7 @@
   </head>
   <body>
     <header>
+      <img src="" alt="">
       <h2>"Yeah, it's that easy..."</h2>
       <h2>Welcome Traveler!</h2>
       <h1>Ready, Set, Travel</h1>
@@ -31,20 +32,23 @@
 
       </div>
     </aside>
+    <form action="">
+      <h2>Request A Trip!</h2>
+      <label for="date">Date</label>
+      <input type="text" name="date" placeholder="Date">
+      <label for="duration">Duration</label>
+      <input type="text" name="duration" placeholder="Duration">
+      <label for="num-of-travelers">Number of Travelers</label>
+      <input type="text" name="num-of-travelers" placeholder="Number of Travelers">
+      <button>Calculate Trip Cost</button>
+      <button>Submit</button>
+      <h3>Pick a Destination Below</h3>
+    </form>
     <main>
-      <form action="">
-        <h2>Book A Trip!</h2>
-        <input type="text" placeholder="Date">
-        <input type="text" placeholder="Duration">
-        <input type="text" placeholder="Number of Travelers">
-        <h3>Pick a Destination Below</h3>
-      </form>
-      <section>
-        <h2>All Destinations</h2>
+      <h2>All Destinations</h2>
         <div>
 
         </div>
-      </section>
     </main>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
