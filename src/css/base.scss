@@ -27,7 +27,6 @@ body {
   grid-template-areas:
   "header header"
   "aside form"
-  "aside main"
   "aside main";
   height: 100vh;
   width: auto;
@@ -50,15 +49,15 @@ aside {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  overflow:auto;
+  overflow:scroll;
 }
 
 .trips-box {
   width: 100%;
-  height: 300px;
+  height: 400px;
   display: flex;
   flex-direction: column;
-  overflow:scroll;
+  // overflow:scroll;
 }
 
 // TRIP FORM
@@ -73,6 +72,13 @@ form {
 // ALL DESTINATIONS
 main {
   grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.destinations {
+  grid-row: 2 / 1;
   display: flex;
   flex-direction: column;
   align-items: center;
