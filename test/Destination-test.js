@@ -35,11 +35,11 @@ describe('Destination', () => {
         expect(destination.estimatedFlightCostPerPerson).to.equal(400);
     });
 
-    // it('should initialize with a flight cost per person', () => {
-    //     expect(destination.estimatedFlightCostPerPerson).to.equal(400);
-    // });
+    it('should initialize with an image of the destination', () => {
+        expect(destination.image).to.equal("https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80");
+    });
 
-    // it('should initialize with a flight cost per person', () => {
-    //     expect(destination.estimatedFlightCostPerPerson).to.equal(400);
-    // });
+    it('should initialize with an alt tag for the image', () => {
+        expect(destination.alt).to.equal("overview of city buildings with a clear sky");
+    });
 });
