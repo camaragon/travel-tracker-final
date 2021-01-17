@@ -5,7 +5,6 @@ import Trip from '../src/Trip';
 import Destination from '../src/Destination';
 import {tripData} from './test-data';
 import {destinationData} from './test-data';
-import moment from 'moment';
 
 describe('Trip', () => {
     let trip1;
@@ -92,9 +91,9 @@ describe('Trip', () => {
         expect(trip2.alt).to.eq("brightly colored buildings near body of water");
     });
 
-    it('should be able to find the trip\'s total cost', () => {
-        expect(trip1.createPresentTrip()).to.eql([]);
-        expect(trip2.createPresentTrip()).to.eql([{
+    it('should be able to find the trip\'s that are present', () => {
+        expect(trip1.createPresentTrips()).to.eql([]);
+        expect(trip2.createPresentTrips()).to.eql([{
               id: 5,
               userID: 42,
               destinationID: 29,
@@ -110,21 +109,36 @@ describe('Trip', () => {
             }
         ]);
 
-        
     });
-    // present trip method 
-    // getPresentDateRange()
-    //
     
-    
-    // assignTripType()
-    // input: this.date
-    // output: "Present" or "Upcoming" or "Past"
-    // if (this.status === "approved")
-    //  if (this.date.includes(moment().format('YYYY/MM/DD')) return "present"
-    //  else if (mooment(this.date, ))
-    // else {
-    // if (moment(this.date, 'YYYY/MM/DD').fromNow().includes(ago)) return "past"
+    it('should be able to find the trip\'s that are in the past', () => {
+        expect(trip1.createPastTrips()).to.eql([{
+              id: 1,
+              userID: 44,
+              destinationID: 49,
+              travelers: 1,
+              date: '2019/09/16',
+              duration: 8,
+              status: 'approved',
+              suggestedActivities: [],
+              totalCost: 5819,
+              location: 'Castries, St Lucia',
+              image: 'https://images.unsplash.com/photo-1524478075552-c2763ea171b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80',
+              alt: 'aerial photography of rocky mountain under cloudy sky'
+            }
+        ]);
+        expect(trip2.createPastTrips()).to.eql([]);
+    });
+
+    it('should be able to find the trip\'s that are upcoming', () => {
+        expect(trip1.createUpcomingTrips()).to.eql([]);
+        expect(trip2.createUpcomingTrips()).to.eql([]);
+    });
+
+    it('should be able to find the trip\'s that are pending', () => {
+        expect(trip1.createPendingTrips()).to.eql([]);
+        expect(trip2.createPendingTrips()).to.eql([]);
+    });
 });
 
 
