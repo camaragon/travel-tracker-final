@@ -11,10 +11,15 @@ import {destinationData} from './test-data';
 describe('Traveler', () => {
     let traveler1;
     let traveler2;
+    let allDestinations;
+    let trips; 
+    let trav1Trips;
   
     beforeEach(() => {
+        allDestinations = new Destination(destinationData);
+        trips = tripData.trips.map(trip => new Trip(trip, allDestinations));
         traveler1 = new Traveler(travelerData.travelers[0]);
-        traveler2 = new Traveler(travelerData.travelers[5]);
+        traveler2 = new Traveler(travelerData.travelers[1]);
     });
 
     it('should be a function', () => {
@@ -28,16 +33,26 @@ describe('Traveler', () => {
 
     it('should initialize with an id', () => {
         expect(traveler1.id).to.eq(1);
-        expect(traveler2.id).to.eq(6);
+        expect(traveler2.id).to.eq(2);
     });
 
     it('should initialize with a name', () => {
         expect(traveler1.name).to.eq('Ham Leadbeater');
-        expect(traveler2.name).to.eq('Laverna Flawith');
+        expect(traveler2.name).to.eq('Rachael Vaughten');
     });
 
     it('should initialize with a traveler type', () => {
         expect(traveler1.travelerType).to.eq('relaxer');
-        expect(traveler2.travelerType).to.eq('shopper');
+        expect(traveler2.travelerType).to.eq('thrill-seeker');
     });
+
+    it('should be able to find all of the traveler\'s trips', () => {
+        expect(traveler1.findMyTrips(trips)).to.eql([]);
+        expect(traveler2.findMyTrips(trips)).to.eql([]);
+    });
+
+    // it('should initialize with a present trips', () => {
+    //     expect(traveler1.createPresentTrips(trips)).to.eql('relaxer');
+    //     expect(traveler2.createPresentTrips()).to.eql('shopper');
+    // });
 });
