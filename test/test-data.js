@@ -1,4 +1,6 @@
-const travelerData = [{
+const travelerData = {
+    travelers: [
+{
     id: 1,
     name: "Ham Leadbeater",
     travelerType: "relaxer"
@@ -49,9 +51,11 @@ const travelerData = [{
     travelerType: "relaxer"
 }
 
-]
+]}
 
-const destinationData = [{
+const destinationData = {
+    destinations: [
+{
     id: 1,
     destination: "Lima, Peru",
     estimatedLodgingCostPerDay: 70,
@@ -90,11 +94,77 @@ const destinationData = [{
     estimatedFlightCostPerPerson: 650,
     image: "https://images.unsplash.com/photo-1543785734-4b6e564642f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
     alt: "city with clear skys and a road in the day time"
+},
+{
+    id: 29,
+    destination: "Willemstad, Curaçao",
+    estimatedLodgingCostPerDay: 80,
+    estimatedFlightCostPerPerson: 1100,
+    image: "https://images.unsplash.com/photo-1541748603027-cbfefa3a6c8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80",
+    alt: "brightly colored buildings near body of water"
+},
+{
+    id: 49,
+    destination: "Castries, St Lucia",
+    estimatedLodgingCostPerDay: 650,
+    estimatedFlightCostPerPerson: 90,
+    image: "https://images.unsplash.com/photo-1524478075552-c2763ea171b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80",
+    alt: "aerial photography of rocky mountain under cloudy sky"
 }
-]
+]}
 
-// const trips = [
-    
-    // ]
+const tripData = {
+    trips: [
+{
+    id: 1,
+    userID: 44,
+    destinationID: 49,
+    travelers: 1,
+    date: "2019/09/16",
+    duration: 8,
+    status: "approved",
+    suggestedActivities: []
+},
+{
+    id: 2,
+    userID: 35,
+    destinationID: 25,
+    travelers: 5,
+    date: "2020/10/04",
+    duration: 18,
+    status: "pending",
+    suggestedActivities: []
+},
+{
+    id: 3,
+    userID: 3,
+    destinationID: 22,
+    travelers: 4,
+    date: "2020/05/22",
+    duration: 17,
+    status: "pending",
+    suggestedActivities: []
+},
+{
+    id: 4,
+    userID: 43,
+    destinationID: 14,
+    travelers: 2,
+    date: "2020/02/25",
+    duration: 10,
+    status: "approved",
+    suggestedActivities: []
+},
+{
+    id: 5,
+    userID: 42,
+    destinationID: 29,
+    travelers: 3,
+    date: "2021/01/14",
+    duration: 18,
+    status: "approved",
+    suggestedActivities: []
+},
+]}
 
-export {travelerData, destinationData};
+export {travelerData, destinationData, tripData};
