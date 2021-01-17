@@ -1,3 +1,4 @@
+const moment = require("moment");
 class Trip {
     constructor(trip, allDestinations) {
         this.id = trip.id;
@@ -15,6 +16,7 @@ class Trip {
     }
 
     calculateTotalTripCost(allDestinations) {
+        console.log(moment(this.date).format('YYYY/MM/DD'));
         const destination = allDestinations.findDestinationById(this.destinationID);
         const totalCost = Math.floor(((destination.estimatedLodgingCostPerDay * this.duration) + (destination.estimatedFlightCostPerPerson * this.travelers)) * 1.1);
         return totalCost;

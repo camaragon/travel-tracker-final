@@ -5,6 +5,7 @@ import Trip from '../src/Trip';
 import Destination from '../src/Destination';
 import {tripData} from './test-data';
 import {destinationData} from './test-data';
+import moment from 'moment';
 
 describe('Trip', () => {
     let trip1;
@@ -90,13 +91,8 @@ describe('Trip', () => {
         expect(trip1.alt).to.eq("aerial photography of rocky mountain under cloudy sky");
         expect(trip2.alt).to.eq("brightly colored buildings near body of water");
     });
+
+    
 });
 
 
-// calculateTotalTripTotalCost
-// input: array of trip objects and an array of destination objects
-// output: trip object with new property of totalCost
-// methods: filter and reduce
-// filter the destination objects to the destination id of the trip 
-// 
-// 
