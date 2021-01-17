@@ -22,9 +22,9 @@ describe('Destination', () => {
         expect(destination2).to.be.an.instanceof(Destination);
     });
 
-    it('should initalize with all of the destinations', () => {
-        expect(destination1.allDestinations).to.eq(destinationData);
-        expect(destination2.allDestinations).to.eq(destinationData);
+    it('should initialize with all of the destinations', () => {
+        expect(destination1.allDestinations).to.eq(destinationData.destinations);
+        expect(destination2.allDestinations).to.eq(destinationData.destinations);
     });
 
     it('should find a destination by the id', () => {

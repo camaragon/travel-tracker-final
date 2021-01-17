@@ -9,6 +9,15 @@ class Trip {
         this.status = trip.status;
         this.suggestedActivities = trip.suggestedActivities;
     }
+
+    calculateTotalTripCost(destinations) {
+        console.log(this.destinationID)
+        const destination = destinations.findDestinationById(this.destinationID);
+        console.log(destination);
+        const totalCost = Math.floor(((destination.estimatedLodgingCostPerDay * this.duration) + (destination.estimatedFlightCostPerPerson * this.travelers)) * 1.1);
+        console.log(totalCost);
+        return totalCost;
+    }
 };
 
 module.exports = Trip;

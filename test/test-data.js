@@ -1,4 +1,6 @@
-const travelerData = [{
+const travelerData = {
+    travelers: [
+{
     id: 1,
     name: "Ham Leadbeater",
     travelerType: "relaxer"
@@ -49,9 +51,11 @@ const travelerData = [{
     travelerType: "relaxer"
 }
 
-]
+]}
 
-const destinationData = [{
+const destinationData = {
+    destinations: [
+{
     id: 1,
     destination: "Lima, Peru",
     estimatedLodgingCostPerDay: 70,
@@ -90,10 +94,28 @@ const destinationData = [{
     estimatedFlightCostPerPerson: 650,
     image: "https://images.unsplash.com/photo-1543785734-4b6e564642f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
     alt: "city with clear skys and a road in the day time"
+},
+{
+    id: 29,
+    destination: "Willemstad, Curaçao",
+    estimatedLodgingCostPerDay: 80,
+    estimatedFlightCostPerPerson: 1100,
+    image: "https://images.unsplash.com/photo-1541748603027-cbfefa3a6c8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80",
+    alt: "brightly colored buildings near body of water"
+},
+{
+    id: 49,
+    destination: "Castries, St Lucia",
+    estimatedLodgingCostPerDay: 650,
+    estimatedFlightCostPerPerson: 90,
+    image: "https://images.unsplash.com/photo-1524478075552-c2763ea171b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80",
+    alt: "aerial photography of rocky mountain under cloudy sky"
 }
-]
+]}
 
-const tripData = [{
+const tripData = {
+    trips: [
+{
     id: 1,
     userID: 44,
     destinationID: 49,
@@ -143,6 +165,6 @@ const tripData = [{
     status: "approved",
     suggestedActivities: []
 }
-]
+]}
 
 export {travelerData, destinationData, tripData};

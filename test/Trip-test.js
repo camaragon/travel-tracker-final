@@ -2,15 +2,19 @@ import chai from 'chai';
 const expect = chai.expect;
 
 import Trip from '../src/Trip';
+import Destination from '../src/Destination';
 import {tripData} from './test-data';
+import {destinationData} from './test-data';
 
 describe('Trip', () => {
     let trip1;
     let trip2;
+    let destinations;
   
     beforeEach(() => {
-        trip1 = new Trip(tripData[0]);
-        trip2 = new Trip(tripData[4]);
+        trip1 = new Trip(tripData.trips[0]);
+        trip2 = new Trip(tripData.trips[4]);
+        destinations = new Destination(destinationData);
     });
 
     it('should be a function', () => {
@@ -61,6 +65,16 @@ describe('Trip', () => {
         expect(trip1.suggestedActivities).to.eql([]);
         expect(trip2.suggestedActivities).to.eql([]);
     });
+
+    it('should add the trip\'s total cost to the trip', () => {
+        expect(trip1.calculateTotalTripCost(destinations)).to.eq(5819);
+        expect(trip2.calculateTotalTripCost(destinations)).to.eq(5214);
+    });
+
+    // it('should initialize', () => {
+    //     expect(trip1.calculateTotalTripCost(destinations)).to.eq(5819);
+    //     expect(trip2.calculateTotalTripCost(destinations)).to.eq(5214);
+    // });
 });
 
 
@@ -68,4 +82,6 @@ describe('Trip', () => {
 // input: array of trip objects and an array of destination objects
 // output: trip object with new property of totalCost
 // methods: filter and reduce
-// filter the destination objects to the id of the trip 
+// filter the destination objects to the destination id of the trip 
+// 
+// 

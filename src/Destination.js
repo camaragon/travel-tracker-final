@@ -1,6 +1,6 @@
 class Destination {
     constructor(destinationData) {
-        this.allDestinations = destinationData;
+        this.allDestinations = destinationData.destinations;
     }
 
     findDestinationById(id) {
