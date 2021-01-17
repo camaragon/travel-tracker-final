@@ -95,7 +95,7 @@ const tripData = {
     "duration": 14,
     "status": "approved",
     "suggestedActivities": []
-}
+},
 {
     id: 5,
     userID: 42,

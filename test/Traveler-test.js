@@ -32,18 +32,18 @@ describe('Traveler', () => {
     });
 
     it('should initialize with an id', () => {
-        expect(traveler1.id).to.eq(1);
-        expect(traveler2.id).to.eq(2);
+        expect(traveler1.id).to.eq(42);
+        expect(traveler2.id).to.eq(44);
     });
 
     it('should initialize with a name', () => {
-        expect(traveler1.name).to.eq('Ham Leadbeater');
-        expect(traveler2.name).to.eq('Rachael Vaughten');
+        expect(traveler1.name).to.eq('Mignonne Thame');
+        expect(traveler2.name).to.eq('Marijo MacNeilley');
     });
 
     it('should initialize with a traveler type', () => {
-        expect(traveler1.travelerType).to.eq('relaxer');
-        expect(traveler2.travelerType).to.eq('thrill-seeker');
+        expect(traveler1.travelerType).to.eq('photographer');
+        expect(traveler2.travelerType).to.eq('photographer');
     });
 
     it('should be able to find all of the traveler\'s trips', () => {

@@ -14,7 +14,7 @@ describe('Trip', () => {
     beforeEach(() => {
         allDestinations = new Destination(destinationData);
         trip1 = new Trip(tripData.trips[0], allDestinations);
-        trip2 = new Trip(tripData.trips[1], allDestinations);
+        trip2 = new Trip(tripData.trips[3], allDestinations);
     });
 
     it('should be a function', () => {
