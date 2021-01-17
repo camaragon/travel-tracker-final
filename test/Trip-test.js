@@ -9,12 +9,12 @@ import {destinationData} from './test-data';
 describe('Trip', () => {
     let trip1;
     let trip2;
-    let destinations;
+    let allDestinations;
   
     beforeEach(() => {
-        trip1 = new Trip(tripData.trips[0]);
-        trip2 = new Trip(tripData.trips[4]);
-        destinations = new Destination(destinationData);
+        allDestinations = new Destination(destinationData);
+        trip1 = new Trip(tripData.trips[0], allDestinations);
+        trip2 = new Trip(tripData.trips[4], allDestinations);
     });
 
     it('should be a function', () => {
@@ -66,15 +66,30 @@ describe('Trip', () => {
         expect(trip2.suggestedActivities).to.eql([]);
     });
 
-    it('should add the trip\'s total cost to the trip', () => {
-        expect(trip1.calculateTotalTripCost(destinations)).to.eq(5819);
-        expect(trip2.calculateTotalTripCost(destinations)).to.eq(5214);
+    it('should be able to find the trip\'s total cost', () => {
+        expect(trip1.calculateTotalTripCost(allDestinations)).to.eq(5819);
+        expect(trip2.calculateTotalTripCost(allDestinations)).to.eq(5214);
     });
 
-    // it('should initialize', () => {
-    //     expect(trip1.calculateTotalTripCost(destinations)).to.eq(5819);
-    //     expect(trip2.calculateTotalTripCost(destinations)).to.eq(5214);
-    // });
+    it('should initialize with the total cost including the 10% agency fee', () => {
+        expect(trip1.totalCost).to.eq(5819);
+        expect(trip2.totalCost).to.eq(5214);
+    });
+
+    it('should initialize with the location for the trip', () => {
+        expect(trip1.location).to.eq("Castries, St Lucia");
+        expect(trip2.location).to.eq("Willemstad, Curaçao");
+    });
+
+    it('should initialize with the image of the destination', () => {
+        expect(trip1.image).to.eq("https://images.unsplash.com/photo-1524478075552-c2763ea171b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80");
+        expect(trip2.image).to.eq("https://images.unsplash.com/photo-1541748603027-cbfefa3a6c8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80");
+    });
+
+    it('should initialize with the alt tage for the destination image', () => {
+        expect(trip1.alt).to.eq("aerial photography of rocky mountain under cloudy sky");
+        expect(trip2.alt).to.eq("brightly colored buildings near body of water");
+    });
 });
 
 
