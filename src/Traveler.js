@@ -1,9 +1,13 @@
 const moment = require("moment");
 class Traveler {
-    constructor(traveler) {
+    constructor(traveler, trips) {
         this.id = traveler.id;
         this.name = traveler.name;
         this.travelerType = traveler.travelerType;
+        this.presentTrips = this.createPresentTrips(trips);
+        this.pastTrips = this.createPastTrips(trips);
+        this.upcomingTrips = this.createUpcomingTrips(trips);
+        this.pendingTrips = this.createPendingTrips(trips);
     }
 
     findMyTrips(trips) {
@@ -21,7 +25,6 @@ class Traveler {
                 presentTrips.push(trip);
             }
         })
-        // console.log(presentTrips);
         return presentTrips;
     }
 
@@ -34,7 +37,6 @@ class Traveler {
                 pastTrips.push(trip);
             }
         })
-        // console.log(pastTrips);
         return pastTrips;
     }
 
@@ -46,7 +48,6 @@ class Traveler {
                 upcomingTrips.push(trip);
             }
         })
-        // console.log(upcomingTrips);
         return upcomingTrips;
     }
 
@@ -57,7 +58,6 @@ class Traveler {
                 pendingTrips.push(trip);
             }
         })
-        // console.log(pendingTrips);
         return pendingTrips;
     }
 }
