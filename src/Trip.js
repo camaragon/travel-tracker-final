@@ -16,11 +16,23 @@ class Trip {
     }
 
     calculateTotalTripCost(allDestinations) {
-        console.log(moment(this.date).format('YYYY/MM/DD'));
         const destination = allDestinations.findDestinationById(this.destinationID);
         const totalCost = Math.floor(((destination.estimatedLodgingCostPerDay * this.duration) + (destination.estimatedFlightCostPerPerson * this.travelers)) * 1.1);
         return totalCost;
     }
+
+    createPresentTrip() {
+        console.log(this);
+        let presentTrips = [];
+        const startDate = (Date.parse(this.date));
+        let date = moment(this.date, 'YYYY/MM/DD').add(this.duration, 'days');
+        let endDate = Date.parse(date);
+        if (Date.now() >= startDate && Date.now() <= endDate) {
+            presentTrips.push(this);
+        }
+        return presentTrips;
+    }
+
 };
 
 module.exports = Trip;

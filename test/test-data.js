@@ -160,11 +160,11 @@ const tripData = {
     userID: 42,
     destinationID: 29,
     travelers: 3,
-    date: "2020/04/30",
+    date: "2021/01/14",
     duration: 18,
     status: "approved",
     suggestedActivities: []
-}
+},
 ]}
 
 export {travelerData, destinationData, tripData};

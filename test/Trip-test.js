@@ -49,7 +49,7 @@ describe('Trip', () => {
 
     it('should initialize with a date', () => {
         expect(trip1.date).to.eq("2019/09/16");
-        expect(trip2.date).to.eq("2020/04/30");
+        expect(trip2.date).to.eq("2021/01/14");
     });
 
     it('should initialize with a duration', () => {
@@ -92,7 +92,39 @@ describe('Trip', () => {
         expect(trip2.alt).to.eq("brightly colored buildings near body of water");
     });
 
+    it('should be able to find the trip\'s total cost', () => {
+        expect(trip1.createPresentTrip()).to.eql([]);
+        expect(trip2.createPresentTrip()).to.eql([{
+              id: 5,
+              userID: 42,
+              destinationID: 29,
+              travelers: 3,
+              date: '2021/01/14',
+              duration: 18,
+              status: 'approved',
+              suggestedActivities: [],
+              totalCost: 5214,
+              location: 'Willemstad, Curaçao',
+              image: 'https://images.unsplash.com/photo-1541748603027-cbfefa3a6c8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80',
+              alt: 'brightly colored buildings near body of water'
+            }
+        ]);
+
+        
+    });
+    // present trip method 
+    // getPresentDateRange()
+    //
     
+    
+    // assignTripType()
+    // input: this.date
+    // output: "Present" or "Upcoming" or "Past"
+    // if (this.status === "approved")
+    //  if (this.date.includes(moment().format('YYYY/MM/DD')) return "present"
+    //  else if (mooment(this.date, ))
+    // else {
+    // if (moment(this.date, 'YYYY/MM/DD').fromNow().includes(ago)) return "past"
 });
 
 
