@@ -30,12 +30,35 @@ class Traveler {
         this.findMyTrips(trips).forEach(trip => {
             let date = moment(trip.date, 'YYYY/MM/DD').add(trip.duration, 'days');
             const endDate = Date.parse(date);
-            if (Date.now() > endDate && trip.status === 'approved') {
+            if (Date.now() > endDate && trip.status.includes('approved')) {
                 pastTrips.push(trip);
             }
         })
-        console.log(pastTrips);
+        // console.log(pastTrips);
         return pastTrips;
+    }
+
+    createUpcomingTrips(trips) {
+        const upcomingTrips = [];
+        this.findMyTrips(trips).forEach(trip => {
+            const startDate = (Date.parse(trip.date));
+            if (Date.now() < startDate && trip.status.includes('approved')) {
+                upcomingTrips.push(trip);
+            }
+        })
+        // console.log(upcomingTrips);
+        return upcomingTrips;
+    }
+
+    createPendingTrips(trips) {
+        const pendingTrips = [];
+        this.findMyTrips(trips).forEach(trip => {
+            if (trip.status.includes('pending')) {
+                pendingTrips.push(trip);
+            }
+        })
+        // console.log(pendingTrips);
+        return pendingTrips;
     }
 }
 

@@ -136,7 +136,7 @@ describe('Traveler', () => {
           ]);
     });
 
-    it('should should be able to find the trip\'s that are in the present', () => {
+    it('should be able to find the traveler\'s trips that are in the present', () => {
         expect(traveler1.createPresentTrips(trips)).to.eql([
             {
               id: 5,
@@ -156,7 +156,7 @@ describe('Traveler', () => {
         expect(traveler2.createPresentTrips(trips)).to.eql([]);
     });
 
-    it('should be able to find the trip\'s that are in the past', () => {
+    it('should be able to find the traveler\'s trips that are in the past', () => {
         expect(traveler1.createPastTrips(trips)).to.eql([
             {
               id: 87,
@@ -205,13 +205,43 @@ describe('Traveler', () => {
           ]);
     });
 
-    // it('should be able to find the trip\'s that are upcoming', () => {
-    //     expect(trip1.createUpcomingTrips()).to.eql([]);
-    //     expect(trip2.createUpcomingTrips()).to.eql([]);
-    // });
+    it('should be able to find the traveler\'s trips that are upcoming', () => {
+        expect(traveler1.createUpcomingTrips(trips)).to.eql([]);
+        expect(traveler2.createUpcomingTrips(trips)).to.eql([
+            {
+              id: 68,
+              userID: 44,
+              destinationID: 41,
+              travelers: 6,
+              date: '2021/03/19',
+              duration: 14,
+              status: 'approved',
+              suggestedActivities: [],
+              totalCost: 8360,
+              location: 'Montego Bay, Jamaica',
+              image: 'https://images.unsplash.com/photo-1557129604-0e50f1300fab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+              alt: 'boats docked beside trees on river'
+            }
+          ]);
+    });
 
-    // it('should be able to find the trip\'s that are pending', () => {
-    //     expect(trip1.createPendingTrips()).to.eql([]);
-    //     expect(trip2.createPendingTrips()).to.eql([]);
-    // });
+    it('should be able to find the traveler\'s trips that are pending', () => {
+        expect(traveler1.createPendingTrips(trips)).to.eql([
+            {
+              id: 132,
+              userID: 42,
+              destinationID: 30,
+              travelers: 5,
+              date: '2020/09/07',
+              duration: 5,
+              status: 'pending',
+              suggestedActivities: [],
+              totalCost: 6985,
+              location: 'Antananarivo, Madagascar',
+              image: 'https://images.unsplash.com/photo-1563656353898-febc9270a0f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+              alt: 'landscape photo of a city skyline'
+            }
+          ]);
+        expect(traveler2.createPendingTrips(trips)).to.eql([]);
+    });
 });

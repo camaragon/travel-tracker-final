@@ -20,44 +20,6 @@ class Trip {
         const totalCost = Math.floor(((destination.estimatedLodgingCostPerDay * this.duration) + (destination.estimatedFlightCostPerPerson * this.travelers)) * 1.1);
         return totalCost;
     }
-
-    createPresentTrips() {
-        const presentTrips = [];
-        const startDate = (Date.parse(this.date));
-        let date = moment(this.date, 'YYYY/MM/DD').add(this.duration, 'days');
-        const endDate = Date.parse(date);
-        if (Date.now() >= startDate && Date.now() <= endDate) {
-            presentTrips.push(this);
-        }
-        return presentTrips;
-    }
-
-    createPastTrips() {
-        const pastTrips = [];
-        let date = moment(this.date, 'YYYY/MM/DD').add(this.duration, 'days');
-        const endDate = Date.parse(date);
-        if (Date.now() > endDate) {
-            pastTrips.push(this);
-        }
-        return pastTrips;
-    }
-
-    createUpcomingTrips() {
-        const upcomingTrips = [];
-        const startDate = (Date.parse(this.date));
-        if (Date.now() < startDate && this.status.includes('approved')) {
-            upcomingTrips.push(this);
-        }
-        return upcomingTrips;
-    }
-
-    createPendingTrips() {
-        const pendingTrips = [];
-        if (this.status.includes('pending')) {
-            pendingTrips.push(this);
-        }
-        return pendingTrips;
-    }
 };
 
 module.exports = Trip;
