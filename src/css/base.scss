@@ -10,9 +10,10 @@ $primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,1
  
 }
 
-// * {
-//   border: 1px solid red;
-// }
+* {
+  // border: 1px solid red;
+  font-family: 'Roboto', sans-serif;;
+}
 
 .stacked {
   display: flex;
@@ -82,6 +83,10 @@ aside {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   border: 1px solid black;
+}
+
+.no-trips-card  {
+  text-align: center;
 }
 
 .trip-img {
