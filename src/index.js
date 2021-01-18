@@ -24,32 +24,37 @@ calcCostBtn.addEventListener('click', buildEstimatedCost)
 function loadAllData() {
     Promise.all([fetchRequests.getDestinations(), fetchRequests.getTrips(), fetchRequests.getTravelers(49)])
     .then(values => {
-        destinations = generateDestinations(values[0]);
-        trips = generateTrips(values[1], destinations);
-        traveler = generateTraveler(values[2], trips);
-        console.log(traveler);
-        console.log(destinations)
-        domUpdates.displayGreeting(traveler);
-        domUpdates.displayPastTrips(traveler);
-        domUpdates.displayUpcomingTrips(traveler);
-        domUpdates.displayPresentTrips(traveler);
-        domUpdates.displayPendingTrips(traveler);
-        domUpdates.displayDestinations(destinations);
+        generateDestinations(values[0]);
+        generateTrips(values[1], destinations);
+        generateTraveler(values[2], trips);
+        // domUpdates.displayGreeting(traveler);
+        // domUpdates.displayPastTrips(traveler);
+        // domUpdates.displayUpcomingTrips(traveler);
+        // domUpdates.displayPresentTrips(traveler);
+        // domUpdates.displayPendingTrips(traveler);
+        // domUpdates.displayDestinations(destinations);
     });
 }
 
 // const bookedRadios = document.querySelectorAll('input[name="booked"]');
 
 function generateDestinations(allDestinations) {
-    return new Destination(allDestinations);
+    destinations = new Destination(allDestinations);
+    domUpdates.displayDestinations(destinations);
   }
 
 function generateTrips(allTrips, destinations) {
-    return allTrips.trips.map(trip => new Trip(trip, destinations));
+    trips = allTrips.trips.map(trip => new Trip(trip, destinations));
+
 }
 
 function generateTraveler(traveler, trips) {
-    return new Traveler(traveler, trips);
+    traveler = new Traveler(traveler, trips);
+    domUpdates.displayGreeting(traveler);
+    domUpdates.displayPastTrips(traveler);
+    domUpdates.displayUpcomingTrips(traveler);
+    domUpdates.displayPresentTrips(traveler);
+    domUpdates.displayPendingTrips(traveler);
 }
 
 function getBookedDestination(event) {
@@ -74,5 +79,5 @@ function buildEstimatedCost(event) {
     const lodgingCost = (bookedDestination.estimatedLodgingCostPerDay * durationInput.value);
     const flightCost = (bookedDestination.estimatedFlightCostPerPerson * numTravelersInput.value);
     const totalCost = Math.floor((lodgingCost + flightCost) * 1.1);
-    return totalCost;
+    domUpdates.displayEstimatedCost(totalCost);
 }

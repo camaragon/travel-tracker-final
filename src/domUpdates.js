@@ -23,9 +23,10 @@ const domUpdates = {
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
                 <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
-                <p>${trip.travelers} Travelers</p>
+                <p>Travelers: ${trip.travelers}</p>
                 <p>${trip.duration} Days</p>
                 <p>Status: ${trip.status.toUpperCase()}</p>
+                <p>Total: $${trip.totalCost}</p>
               </div>`
                 pastTrips.insertAdjacentHTML("beforeend", pastTrip);
             })
@@ -45,9 +46,10 @@ const domUpdates = {
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
                 <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
-                <p>${trip.travelers} Travelers</p>
+                <p>Travelers: ${trip.travelers}</p>
                 <p>${trip.duration} Days</p>
                 <p>Status: ${trip.status.toUpperCase()}</p>
+                <p>Total: $${trip.totalCost}</p>
               </div>`
                 upcomingTrips.insertAdjacentHTML("beforeend", upcomingTrip);
             })
@@ -67,9 +69,10 @@ const domUpdates = {
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
                 <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
-                <p>${trip.travelers} Travelers</p>
+                <p>Travelers: ${trip.travelers}</p>
                 <p>${trip.duration} Days</p>
                 <p>Status: ${trip.status.toUpperCase()}</p>
+                <p>Total: $${trip.totalCost}</p>
               </div>`
                 presentTrips.insertAdjacentHTML("beforeend", presentTrip);
             })
@@ -89,9 +92,10 @@ const domUpdates = {
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
                 <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
-                <p>${trip.travelers} Travelers</p>
+                <p>Travelers: ${trip.travelers}</p>
                 <p>${trip.duration} Days</p>
                 <p>Status: ${trip.status.toUpperCase()}</p>
+                <p>Total: $${trip.totalCost}</p>
               </div>`
                 pendingTrips.insertAdjacentHTML("beforeend", pendingTrip);
             })
@@ -111,8 +115,12 @@ const domUpdates = {
           </div>`
           destinationSection.insertAdjacentHTML("beforeend", destinationHTML)
         })
+    },
+    
+    displayEstimatedCost(total) {
+      const estCost = document.querySelector('#est-cost');
+      estCost.innerText = `Estimated Total Trip Cost: $${total}`;
     }
-
 
 }
 
