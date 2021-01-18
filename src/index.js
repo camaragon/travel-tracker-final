@@ -4,8 +4,7 @@ import './css/base.scss';
 import Destination from './Destination';
 import Trip from './Trip';
 import Traveler from './Traveler';
- 
-const greeting = document.querySelector('#greeting');
+
 
 let traveler;
 let destinations;
@@ -19,7 +18,9 @@ function loadAllData() {
         destinations = generateDestinations(values[0]);
         trips = generateTrips(values[1], destinations);
         traveler = generateTraveler(values[2], trips);
+        console.log(traveler);
         domUpdates.displayGreeting(traveler);
+        domUpdates.displayPastTrips(traveler);
     });
 }
 
