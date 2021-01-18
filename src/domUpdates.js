@@ -99,7 +99,7 @@ const domUpdates = {
     displayDestinations(destinations) {
         const destinationSection = document.querySelector('#destinations');
         destinations.allDestinations.forEach(destination => {
-            let destinationHTML = `<div class="destinations-card">
+            let destinationHTML = `<div class="destinations-card" id="${destination.id}">
             <p>${destination.destination}</p>
             <img class="destination-img" src=${destination.image} alt=${destination.alt}>
             <div class="stacked">
@@ -107,7 +107,7 @@ const domUpdates = {
               <input type="checkbox">
             </div>
           </div>`
-          destinationSection.insertAdjacentHTML("beforeend", destinationHTML);
+          destinationSection.insertAdjacentHTML("beforeend", destinationHTML)
         })
     }
 }
