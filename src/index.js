@@ -21,6 +21,9 @@ function loadAllData() {
         console.log(traveler);
         domUpdates.displayGreeting(traveler);
         domUpdates.displayPastTrips(traveler);
+        domUpdates.displayUpcomingTrips(traveler);
+        domUpdates.displayPresentTrips(traveler);
+        // domUpdates.displayPendingTrips(traveler);
     });
 }
 

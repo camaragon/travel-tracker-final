@@ -20,6 +20,43 @@ const domUpdates = {
           </div>`
             pastTrips.insertAdjacentHTML("beforeend", pastTrip);
         })
+    },
+
+    displayUpcomingTrips(traveler) {
+        const upcomingTrips = document.querySelector('#upcoming-trips');
+        traveler.upcomingTrips.forEach(trip => {
+            let upcomingTrip = `<div class="trips-card">
+            <img class="trip-img" src=${trip.image} alt=${trip.alt}>
+            <p>${trip.location}</p>
+            <p>Depart: ${trip.date}</p>
+            <p>${trip.travelers} Travelers</p>
+            <p>${trip.duration} Days</p>
+            <p>Status: ${trip.status}</p>
+          </div>`
+            upcomingTrips.insertAdjacentHTML("beforeend", upcomingTrip);
+        })
+    },
+
+    displayPresentTrips(traveler) {
+        const presentTrips = document.querySelector('#present-trips');
+        if (traveler.presentTrips.length === 0) {
+            const noTrips = `<div class="no-trips-card">
+            <h3>No Present Trips</h3>
+          </div>`
+            presentTrips.insertAdjacentHTML("beforeend", noTrips)
+        } else {
+            traveler.presentTrips.forEach(trip => {
+                let presentTrip = `<div class="trips-card">
+                <img class="trip-img" src=${trip.image} alt=${trip.alt}>
+                <p>${trip.location}</p>
+                <p>Depart: ${trip.date}</p>
+                <p>${trip.travelers} Travelers</p>
+                <p>${trip.duration} Days</p>
+                <p>Status: ${trip.status}</p>
+              </div>`
+                presentTrips.insertAdjacentHTML("beforeend", presentTrip);
+            })
+        } 
     }
 }
 
