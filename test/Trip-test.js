@@ -14,7 +14,7 @@ describe('Trip', () => {
     beforeEach(() => {
         allDestinations = new Destination(destinationData);
         trip1 = new Trip(tripData.trips[0], allDestinations);
-        trip2 = new Trip(tripData.trips[4], allDestinations);
+        trip2 = new Trip(tripData.trips[3], allDestinations);
     });
 
     it('should be a function', () => {
@@ -89,55 +89,6 @@ describe('Trip', () => {
     it('should initialize with the alt tage for the destination image', () => {
         expect(trip1.alt).to.eq("aerial photography of rocky mountain under cloudy sky");
         expect(trip2.alt).to.eq("brightly colored buildings near body of water");
-    });
-
-    it('should be able to find the trip\'s that are present', () => {
-        expect(trip1.createPresentTrips()).to.eql([]);
-        expect(trip2.createPresentTrips()).to.eql([{
-              id: 5,
-              userID: 42,
-              destinationID: 29,
-              travelers: 3,
-              date: '2021/01/14',
-              duration: 18,
-              status: 'approved',
-              suggestedActivities: [],
-              totalCost: 5214,
-              location: 'Willemstad, Curaçao',
-              image: 'https://images.unsplash.com/photo-1541748603027-cbfefa3a6c8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80',
-              alt: 'brightly colored buildings near body of water'
-            }
-        ]);
-
-    });
-    
-    it('should be able to find the trip\'s that are in the past', () => {
-        expect(trip1.createPastTrips()).to.eql([{
-              id: 1,
-              userID: 44,
-              destinationID: 49,
-              travelers: 1,
-              date: '2019/09/16',
-              duration: 8,
-              status: 'approved',
-              suggestedActivities: [],
-              totalCost: 5819,
-              location: 'Castries, St Lucia',
-              image: 'https://images.unsplash.com/photo-1524478075552-c2763ea171b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80',
-              alt: 'aerial photography of rocky mountain under cloudy sky'
-            }
-        ]);
-        expect(trip2.createPastTrips()).to.eql([]);
-    });
-
-    it('should be able to find the trip\'s that are upcoming', () => {
-        expect(trip1.createUpcomingTrips()).to.eql([]);
-        expect(trip2.createUpcomingTrips()).to.eql([]);
-    });
-
-    it('should be able to find the trip\'s that are pending', () => {
-        expect(trip1.createPendingTrips()).to.eql([]);
-        expect(trip2.createPendingTrips()).to.eql([]);
     });
 });
 

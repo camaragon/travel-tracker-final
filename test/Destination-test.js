@@ -28,51 +28,51 @@ describe('Destination', () => {
     });
 
     it('should find a destination by the id', () => {
-        expect(destination1.findDestinationById(1)).to.eql({
-            id: 1,
-            destination: "Lima, Peru",
-            estimatedLodgingCostPerDay: 70,
-            estimatedFlightCostPerPerson: 400,
-            image: "https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80",
-            alt: "overview of city buildings with a clear sky"
+        expect(destination1.findDestinationById(29)).to.eql({
+            id: 29,
+            destination: "Willemstad, Curaçao",
+            estimatedLodgingCostPerDay: 80,
+            estimatedFlightCostPerPerson: 1100,
+            image: "https://images.unsplash.com/photo-1541748603027-cbfefa3a6c8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80",
+            alt: "brightly colored buildings near body of water"
         });
-        expect(destination2.findDestinationById(2)).to.eql({
-            id: 2,
-            destination: "Stockholm, Sweden",
-            estimatedLodgingCostPerDay: 100,
-            estimatedFlightCostPerPerson: 780,
-            image: "https://images.unsplash.com/photo-1560089168-6516081f5bf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
-            alt: "city with boats on the water during the day time"
+        expect(destination2.findDestinationById(49)).to.eql({
+            id: 49,
+            destination: "Castries, St Lucia",
+            estimatedLodgingCostPerDay: 650,
+            estimatedFlightCostPerPerson: 90,
+            image: "https://images.unsplash.com/photo-1524478075552-c2763ea171b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80",
+            alt: "aerial photography of rocky mountain under cloudy sky"
         });
     });
 
     it('should be able to access an id', () => {
-        expect(destination1.findDestinationById(1).id).to.eq(1);
-        expect(destination2.findDestinationById(2).id).to.eq(2);
+        expect(destination1.findDestinationById(29).id).to.eq(29);
+        expect(destination2.findDestinationById(49).id).to.eq(49);
     });
 
     it('should be able to access a destination location', () => {
-        expect(destination1.findDestinationById(1).destination).to.eq('Lima, Peru');
-        expect(destination2.findDestinationById(2).destination).to.eq('Stockholm, Sweden');
+        expect(destination1.findDestinationById(29).destination).to.eq("Willemstad, Curaçao");
+        expect(destination2.findDestinationById(49).destination).to.eq("Castries, St Lucia");
     });
 
     it('should be able to access a lodging cost per day', () => {
-        expect(destination1.findDestinationById(1).estimatedLodgingCostPerDay).to.eq(70);
-        expect(destination2.findDestinationById(2).estimatedLodgingCostPerDay).to.eq(100);
+        expect(destination1.findDestinationById(29).estimatedLodgingCostPerDay).to.eq(80);
+        expect(destination2.findDestinationById(49).estimatedLodgingCostPerDay).to.eq(650);
     });
 
     it('should be able to access a flight cost per person', () => {
-        expect(destination1.findDestinationById(1).estimatedFlightCostPerPerson).to.eq(400);
-        expect(destination2.findDestinationById(2).estimatedFlightCostPerPerson).to.eq(780);
+        expect(destination1.findDestinationById(29).estimatedFlightCostPerPerson).to.eq(1100);
+        expect(destination2.findDestinationById(49).estimatedFlightCostPerPerson).to.eq(90);
     });
 
     it('should be able to access an image of the destination', () => {
-        expect(destination1.findDestinationById(1).image).to.eq("https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80");
-        expect(destination2.findDestinationById(2).image).to.eq("https://images.unsplash.com/photo-1560089168-6516081f5bf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+        expect(destination1.findDestinationById(29).image).to.eq("https://images.unsplash.com/photo-1541748603027-cbfefa3a6c8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80");
+        expect(destination2.findDestinationById(49).image).to.eq("https://images.unsplash.com/photo-1524478075552-c2763ea171b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80");
     });
 
     it('should be able to access an alt tag for the image', () => {
-        expect(destination1.findDestinationById(1).alt).to.eq("overview of city buildings with a clear sky");
-        expect(destination2.findDestinationById(2).alt).to.eq("city with boats on the water during the day time");
+        expect(destination1.findDestinationById(29).alt).to.eq("brightly colored buildings near body of water");
+        expect(destination2.findDestinationById(49).alt).to.eq("aerial photography of rocky mountain under cloudy sky");
     });
 });
