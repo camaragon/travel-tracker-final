@@ -1,3 +1,5 @@
+const moment = require("moment");
+
 const domUpdates = {
 
     displayGreeting(traveler) {
@@ -20,10 +22,10 @@ const domUpdates = {
                 let pastTrip = `<div class="trips-card">
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
-                <p>Depart: ${trip.date}</p>
+                <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
                 <p>${trip.travelers} Travelers</p>
                 <p>${trip.duration} Days</p>
-                <p>Status: ${trip.status}</p>
+                <p>Status: ${trip.status.toUpperCase()}</p>
               </div>`
                 pastTrips.insertAdjacentHTML("beforeend", pastTrip);
             })
@@ -42,10 +44,10 @@ const domUpdates = {
                 let upcomingTrip = `<div class="trips-card">
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
-                <p>Depart: ${trip.date}</p>
+                <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
                 <p>${trip.travelers} Travelers</p>
                 <p>${trip.duration} Days</p>
-                <p>Status: ${trip.status}</p>
+                <p>Status: ${trip.status.toUpperCase()}</p>
               </div>`
                 upcomingTrips.insertAdjacentHTML("beforeend", upcomingTrip);
             })
@@ -64,10 +66,10 @@ const domUpdates = {
                 let presentTrip = `<div class="trips-card">
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
-                <p>Depart: ${trip.date}</p>
+                <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
                 <p>${trip.travelers} Travelers</p>
                 <p>${trip.duration} Days</p>
-                <p>Status: ${trip.status}</p>
+                <p>Status: ${trip.status.toUpperCase()}</p>
               </div>`
                 presentTrips.insertAdjacentHTML("beforeend", presentTrip);
             })
@@ -86,10 +88,10 @@ const domUpdates = {
                 let pendingTrip = `<div class="trips-card">
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
-                <p>Depart: ${trip.date}</p>
+                <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
                 <p>${trip.travelers} Travelers</p>
                 <p>${trip.duration} Days</p>
-                <p>Status: ${trip.status}</p>
+                <p>Status: ${trip.status.toUpperCase()}</p>
               </div>`
                 pendingTrips.insertAdjacentHTML("beforeend", pendingTrip);
             })
