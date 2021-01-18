@@ -109,8 +109,8 @@ const domUpdates = {
             <p>${destination.destination}</p>
             <img class="destination-img" src=${destination.image} alt=${destination.alt}>
             <div class="stacked">
-              <label for="">Book</label>
-              <input type="radio" name="booked" value="${destination.id}">
+              <label for="booked-radio-button">Book</label>
+              <input type="radio" name="booked" value="${destination.id}" id="booked-radio-button">
             </div>
           </div>`
           destinationSection.insertAdjacentHTML("beforeend", destinationHTML)
@@ -118,10 +118,16 @@ const domUpdates = {
     },
     
     displayEstimatedCost(total) {
-      const estCost = document.querySelector('#est-cost');
-      estCost.innerText = `Estimated Total Trip Cost: $${total}`;
-    }
+      const estCost = document.querySelector('#form-info');
+      estCost.innerText = `Estimated Trip Cost: $${total} (includes 10% agent fee)`;
+      estCost.style.color = '#0000FF';
+    },
 
+    displayErrorMessage() {
+      const errMsg = document.querySelector('#form-info');
+      errMsg.innerText = '🚨 Looks like you forgot to select an input! 🚨';
+      errMsg.style.color = '#ff0000';
+    }
 }
 
 export default domUpdates;

@@ -67,17 +67,17 @@ function getBookedDestination(event) {
             console.log(bookedDestination);
         }
     })
-    // console.log(dateInput.value)
-    // console.log(durationInput.value)
-    // console.log(numTravelersInput.value)
 }
 
 function buildEstimatedCost(event) {
-    console.log(durationInput.value)
-    console.log(numTravelersInput.value)
     getBookedDestination(event);
-    const lodgingCost = (bookedDestination.estimatedLodgingCostPerDay * durationInput.value);
-    const flightCost = (bookedDestination.estimatedFlightCostPerPerson * numTravelersInput.value);
-    const totalCost = Math.floor((lodgingCost + flightCost) * 1.1);
-    domUpdates.displayEstimatedCost(totalCost);
+    if (durationInput.value && numTravelersInput.value && dateInput.value && bookedDestination) {
+        const lodgingCost = (bookedDestination.estimatedLodgingCostPerDay * durationInput.value);
+        const flightCost = (bookedDestination.estimatedFlightCostPerPerson * numTravelersInput.value);
+        const totalCost = Math.floor((lodgingCost + flightCost) * 1.1);
+        domUpdates.displayEstimatedCost(totalCost);
+    } else {
+        event.preventDefault();
+        domUpdates.displayErrorMessage();
+    }
 }
