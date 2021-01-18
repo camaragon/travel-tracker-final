@@ -1,4 +1,4 @@
-const moment = require("moment");
+
 class Trip {
     constructor(trip, allDestinations) {
         this.id = trip.id;

@@ -4,15 +4,24 @@ class Traveler {
         this.id = traveler.id;
         this.name = traveler.name;
         this.travelerType = traveler.travelerType;
+        this.totalAmountSpent = this.calculateAmountSpentThisYear(trips);
         this.presentTrips = this.createPresentTrips(trips);
         this.pastTrips = this.createPastTrips(trips);
         this.upcomingTrips = this.createUpcomingTrips(trips);
         this.pendingTrips = this.createPendingTrips(trips);
     }
-
+    
     findMyTrips(trips) {
         const myTrips = trips.filter(trip => trip.userID === this.id);
         return myTrips;
+    }
+    
+    calculateAmountSpentThisYear(trips) {
+        let filteredTrips = this.findMyTrips(trips).filter(trip => trip.date.includes('2021'));
+        return filteredTrips.reduce((sum, trip) => {
+            sum += trip.totalCost;
+            return sum;
+        }, 0)
     }
 
     createPresentTrips(trips) {
