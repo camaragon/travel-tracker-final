@@ -94,6 +94,21 @@ const domUpdates = {
                 pendingTrips.insertAdjacentHTML("beforeend", pendingTrip);
             })
         } 
+    },
+
+    displayDestinations(destinations) {
+        const destinationSection = document.querySelector('#destinations');
+        destinations.allDestinations.forEach(destination => {
+            let destinationHTML = `<div class="destinations-card" id="${destination.id}">
+            <p>${destination.destination}</p>
+            <img class="destination-img" src=${destination.image} alt=${destination.alt}>
+            <div class="stacked">
+              <label for="">Book</label>
+              <input type="checkbox">
+            </div>
+          </div>`
+          destinationSection.insertAdjacentHTML("beforeend", destinationHTML)
+        })
     }
 }
 

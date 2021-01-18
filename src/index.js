@@ -19,11 +19,13 @@ function loadAllData() {
         trips = generateTrips(values[1], destinations);
         traveler = generateTraveler(values[2], trips);
         console.log(traveler);
+        console.log(destinations)
         domUpdates.displayGreeting(traveler);
         domUpdates.displayPastTrips(traveler);
         domUpdates.displayUpcomingTrips(traveler);
         domUpdates.displayPresentTrips(traveler);
         domUpdates.displayPendingTrips(traveler);
+        domUpdates.displayDestinations(destinations);
     });
 }
 
