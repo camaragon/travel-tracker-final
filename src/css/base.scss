@@ -121,6 +121,29 @@ form {
   border-bottom: 3px solid black;
 }
 
+.trip-request {
+  margin-bottom: 2px;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-label {
+  padding-top: 6px;
+}
+
+.input-btn {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.form-message {
+  margin-top: 0;
+}
+
 // ALL DESTINATIONS
 main {
   grid-area: main;
