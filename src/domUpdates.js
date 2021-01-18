@@ -57,6 +57,28 @@ const domUpdates = {
                 presentTrips.insertAdjacentHTML("beforeend", presentTrip);
             })
         } 
+    },
+
+    displayPendingTrips(traveler) {
+        const pendingTrips = document.querySelector('#pending-trips');
+        if (traveler.pendingTrips.length === 0) {
+            const noTrips = `<div class="no-trips-card">
+            <h3>No Pending Trips</h3>
+          </div>`
+            pendingTrips.insertAdjacentHTML("beforeend", noTrips)
+        } else {
+            traveler.pendingTrips.forEach(trip => {
+                let pendingTrip = `<div class="trips-card">
+                <img class="trip-img" src=${trip.image} alt=${trip.alt}>
+                <p>${trip.location}</p>
+                <p>Depart: ${trip.date}</p>
+                <p>${trip.travelers} Travelers</p>
+                <p>${trip.duration} Days</p>
+                <p>Status: ${trip.status}</p>
+              </div>`
+                pendingTrips.insertAdjacentHTML("beforeend", pendingTrip);
+            })
+        } 
     }
 }
 

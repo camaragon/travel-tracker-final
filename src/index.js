@@ -23,7 +23,7 @@ function loadAllData() {
         domUpdates.displayPastTrips(traveler);
         domUpdates.displayUpcomingTrips(traveler);
         domUpdates.displayPresentTrips(traveler);
-        // domUpdates.displayPendingTrips(traveler);
+        domUpdates.displayPendingTrips(traveler);
     });
 }
 
