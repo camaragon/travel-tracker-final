@@ -5,6 +5,11 @@ import Destination from './Destination';
 import Trip from './Trip';
 import Traveler from './Traveler';
 
+const dateInput = document.querySelector('#date');
+const durationInput = document.querySelector('#duration');
+const numTravelersInput = document.querySelector('#num-of-travelers');
+const calcCostBtn = document.querySelector('#calc-cost');
+const submitBtn = document.querySelector('#submit-btn');
 
 let traveler;
 let destinations;
