@@ -132,7 +132,7 @@ main {
 }
 
 .destination-header {
-  border-bottom: 3px solid black;
+  margin-bottom: 2px;
 }
 
 .destinations-wrapper {
@@ -144,6 +144,7 @@ main {
   padding: 5px;
   background-color: #FFFFF2;
   overflow: scroll;
+  border-top: 3px solid black;
 }
 
 .destinations-card {
@@ -161,4 +162,5 @@ main {
 .destination-img {
   max-height: 100%;
   max-width: 100%;
+  border: 3px solid black;
 }

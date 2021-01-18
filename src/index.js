@@ -15,9 +15,10 @@ const submitBtn = document.querySelector('#submit-btn');
 let traveler;
 let destinations;
 let trips;
+let bookedDestination;
 
 window.addEventListener('load', loadAllData);
-calcCostBtn.addEventListener('click', getBookedId)
+calcCostBtn.addEventListener('click', getBookedDestination)
 
 
 function loadAllData() {
@@ -51,14 +52,14 @@ function generateTraveler(traveler, trips) {
     return new Traveler(traveler, trips);
 }
 
-function getBookedId(event) {
+function getBookedDestination(event) {
     event.preventDefault();
     let all = document.getElementsByName('booked');
     all.forEach(button => {
         if (button.checked) {
-            let id = button.value;
-             let destination = destinations.getDestinationByID(id);
-             console.log(destination);
+            let id = parseInt(button.value);
+            bookedDestination = destinations.findDestinationById(id);
+            console.log(bookedDestination);
         }
     })
     console.log(dateInput.value)
