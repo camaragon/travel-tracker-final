@@ -42,11 +42,11 @@
       <h2>Request A Trip!</h2>
       <div class="input-form stacked">
         <label for="date">Date</label>
-        <input type="text" name="date" placeholder="Date" id="date">
+        <input type="date" name="date" placeholder="Date" id="date">
         <label for="duration">Duration</label>
-        <input type="text" name="duration" placeholder="Duration" id="duration">
+        <input type="number" name="duration" placeholder="0" id="duration" min="1"  max="100">
         <label for="num-of-travelers">Number of Travelers</label>
-        <input type="text" name="num-of-travelers" placeholder="Number of Travelers" id="num-of-travelers">
+        <input type="number" name="num-of-travelers" placeholder="0" id="num-of-travelers" min="1" max="100">
       </div>
       <button id="calc-cost">Calculate Trip Cost</button>
       <button id="submit-btn">Submit</button>

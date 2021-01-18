@@ -106,7 +106,7 @@ const domUpdates = {
             <img class="destination-img" src=${destination.image} alt=${destination.alt}>
             <div class="stacked">
               <label for="">Book</label>
-              <input type="checkbox">
+              <input type="radio" name="booked" value="${destination.id}">
             </div>
           </div>`
           destinationSection.insertAdjacentHTML("beforeend", destinationHTML)
