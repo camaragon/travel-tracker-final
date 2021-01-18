@@ -112,6 +112,8 @@ const domUpdates = {
           destinationSection.insertAdjacentHTML("beforeend", destinationHTML)
         })
     }
+
+
 }
 
 export default domUpdates;

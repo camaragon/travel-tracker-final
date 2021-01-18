@@ -18,7 +18,7 @@ let trips;
 let bookedDestination;
 
 window.addEventListener('load', loadAllData);
-calcCostBtn.addEventListener('click', getBookedDestination)
+calcCostBtn.addEventListener('click', buildEstimatedCost)
 
 
 function loadAllData() {
@@ -62,9 +62,17 @@ function getBookedDestination(event) {
             console.log(bookedDestination);
         }
     })
-    console.log(dateInput.value)
+    // console.log(dateInput.value)
+    // console.log(durationInput.value)
+    // console.log(numTravelersInput.value)
 }
 
-function requestTrip() {
-
+function buildEstimatedCost(event) {
+    console.log(durationInput.value)
+    console.log(numTravelersInput.value)
+    getBookedDestination(event);
+    const lodgingCost = (bookedDestination.estimatedLodgingCostPerDay * durationInput.value);
+    const flightCost = (bookedDestination.estimatedFlightCostPerPerson * numTravelersInput.value);
+    const totalCost = Math.floor((lodgingCost + flightCost) * 1.1);
+    return totalCost;
 }
