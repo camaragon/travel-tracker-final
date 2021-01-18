@@ -35,7 +35,7 @@ body {
   "aside form"
   "aside main";
   height: 100vh;
-  width: 100vw;
+  width: auto;
   margin: 0;
   padding: 0;
   // overflow: hidden;
@@ -59,7 +59,7 @@ aside {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  overflow-y:scroll;
+  // overflow-y:scroll;
   // grid-row: 2 / 5;
   background-color: #407899;
   border-bottom: 3px solid black;
