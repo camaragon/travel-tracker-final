@@ -143,6 +143,12 @@ const domUpdates = {
       document.querySelector('.sidebar').classList.toggle('hidden');
       document.querySelector('.form').classList.toggle('hidden');
       document.querySelector('.destinations').classList.toggle('hidden');
+    },
+
+    displayLoginError(username) {
+      const login = document.querySelector('.login');
+      let errMsg = `🚨 The username ${username} is invalid! 🚨`;
+      login.insertAdjacentHTML('afterbegin', errMsg);
     }
 
 

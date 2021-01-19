@@ -58,33 +58,63 @@ function generateTrips(allTrips, destinations) {
 }
 
 function generateTraveler(allTravelers, trips) {
-    // let id = findTravelerId();
-    // if (id <= 50 && id >= 1) {
-    //     // domUpdates.displayTravelerDashboard();
-    //     let currentTraveler = allTravelers.find(traveler => traveler.id === id);
     return new Traveler(allTravelers, trips);
-    // }
-}
+    }
 
-function findTravelerId(){
-    console.log(username.value)
-    if (username.value) {
-        if (username.value.match(/[a-zA-Z]+/g)[0] === 'traveler') {
-            let id = username.value.match(/\d+/g)[0];
-            return id;
+    function getBookedDestination(event) {
+        let all = document.getElementsByName('booked');
+        all.forEach(button => {
+            if (button.checked) {
+                let id = parseInt(button.value);
+                bookedDestination = destinations.findDestinationById(id);
+            }
+        })
+    }
+    
+    function buildTripPostRequest(event) {
+        // debugger
+        event.preventDefault();
+        getBookedDestination(event);
+        if (durationInput.value && numTravelersInput.value && dateInput.value && bookedDestination) {
+            let tripData = trips.find(trip => trip.destinationID === bookedDestination.id);
+            let newTrip = new Trip(tripData, destinations);
+            newTrip.id = trips.length + 1;
+            newTrip.userID = traveler.id;
+            newTrip.numberOfTravelers = numTravelersInput.value;
+            newTrip.date = moment(dateInput.value).format('YYYY/MM/DD');
+            newTrip.duration = durationInput.value;
+            newTrip.status = 'pending';
+            fetchRequests.postTrip(newTrip);
+            // fetchPendingCards(traveler.id);
+            loadAllData(traveler.id);
+        } else {
+            event.preventDefault();
+            domUpdates.displayErrorMessage();
         }
+    }
+
+function checkTravelersUsername() {
+    console.log(username.value)
+    let word = username.value.match(/[a-zA-Z]+/g)[0];
+    if (word === 'traveler' && username.value.match(/\d+/g)[0]) {
+        return true;
     }
 }
 
-function logInTraveler() {
+function logInTraveler(event) {
+    event.preventDefault();
     console.log(username.value)
     if (username.value && password.value) {
-        let id = findTravelerId();
-        loggedIn = true;
-        loadAllData(id);
-        domUpdates.displayTravelerDashboard();
-    } else {
-        console.log('incorrect');
+        if (checkTravelersUsername() && username.value.match(/\d+/g)[0] > 0 &&
+        username.value.match(/\d+/g)[0] <= 50) {
+            let id = username.value.match(/\d+/g)[0];
+            loggedIn = true;
+            domUpdates.displayTravelerDashboard();
+            loadAllData(id);
+        } else {
+            event.preventDefault();
+            domUpdates.displayLoginError(username.value);
+        }
     }
 }
 
@@ -92,16 +122,6 @@ function logInTraveler() {
 //     location.reload();
 // }
 
-function getBookedDestination(event) {
-    let all = document.getElementsByName('booked');
-    all.forEach(button => {
-        if (button.checked) {
-            let id = parseInt(button.value);
-            bookedDestination = destinations.findDestinationById(id);
-            
-        }
-    })
-}
 
 function buildEstimatedCost(event) {
     getBookedDestination(event);
@@ -118,23 +138,11 @@ function buildEstimatedCost(event) {
 }
 
 
-function buildTripPostRequest(event) {
-    event.preventDefault();
-    getBookedDestination(event);
-    if (durationInput.value && numTravelersInput.value && dateInput.value && bookedDestination) {
-        let tripData = trips.find(trip => trip.destinationID === bookedDestination.id);
-        let newTrip = new Trip(tripData, destinations);
-        newTrip.id = trips.length + 1;
-        newTrip.userID = traveler.id;
-        newTrip.numberOfTravelers = numTravelersInput.value;
-        newTrip.date = moment(dateInput.value).format('YYYY/MM/DD');
-        newTrip.duration = durationInput.value;
-        newTrip.status = 'pending';
-        fetchRequests.postTrip(newTrip);
-        loadAllData(traveler.id);
-    } else {
-        event.preventDefault();
-        domUpdates.displayErrorMessage();
-    }
-}
+
+// function fetchPendingCards(id) {
+//     trips = fetchRequests.getTrips()
+//     traveler = generateTraveler(fetchRequests.getTraveler(id), trips);
+//     domUpdates.displayPendingTrips(traveler);
+//     domUpdates.displayGreeting(traveler);
+// }
 
