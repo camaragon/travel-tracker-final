@@ -116,6 +116,12 @@ const domUpdates = {
           destinationSection.insertAdjacentHTML("beforeend", destinationHTML)
         })
     },
+
+    changeDateSelection() {
+      let dateSelection = document.querySelector('#date');
+      let currentDate = moment().format().split('T')[0];
+      dateSelection.setAttribute('min', currentDate);
+    },
     
     displayEstimatedCost(total) {
       const estCost = document.querySelector('#form-info');

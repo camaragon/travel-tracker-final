@@ -13,6 +13,7 @@ const calcCostBtn = document.querySelector('#calc-cost');
 const submitBtn = document.querySelector('#submit-btn');
 
 
+
 let traveler;
 let destinations;
 let trips;
@@ -21,6 +22,7 @@ let bookedDestination;
 window.addEventListener('load', loadAllData);
 calcCostBtn.addEventListener('click', buildEstimatedCost)
 submitBtn.addEventListener('click', buildTripPostRequest);
+dateInput.addEventListener('click', domUpdates.changeDateSelection);
 
 function loadAllData() {
     Promise.all([fetchRequests.getDestinations(), fetchRequests.getTrips(), fetchRequests.getTravelers(49)])
