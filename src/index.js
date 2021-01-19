@@ -5,6 +5,7 @@ import Destination from './Destination';
 import Trip from './Trip';
 import Traveler from './Traveler';
 const moment = require("moment");
+import './images/travel.png'
 
 const dateInput = document.querySelector('#date');
 const durationInput = document.querySelector('#duration');
