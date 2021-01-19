@@ -133,7 +133,17 @@ const domUpdates = {
       const errMsg = document.querySelector('#form-info');
       errMsg.innerText = '🚨 Looks like you forgot to select an input! 🚨';
       errMsg.style.color = '#ff0000';
+    },
+
+    displayTravelerDashboard() {
+      document.querySelector('.login-page').classList.toggle('hidden');
+      document.querySelector('.body').style.display = 'grid';
+      document.querySelector('.sidebar').classList.toggle('hidden');
+      document.querySelector('.form').classList.toggle('hidden');
+      document.querySelector('.destinations').classList.toggle('hidden');
     }
+
+
 }
 
 export default domUpdates;

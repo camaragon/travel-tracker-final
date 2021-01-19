@@ -13,6 +13,10 @@ const durationInput = document.querySelector('#duration');
 const numTravelersInput = document.querySelector('#num-of-travelers');
 const calcCostBtn = document.querySelector('#calc-cost');
 const submitBtn = document.querySelector('#submit-btn');
+const username = document.querySelector('input[name="username"]')
+const password = document.querySelector('input[name="password"]');
+const loginBtn = document.querySelector('.login-button');
+
 
 let traveler;
 let destinations;
@@ -23,9 +27,11 @@ window.addEventListener('load', loadAllData);
 calcCostBtn.addEventListener('click', buildEstimatedCost)
 submitBtn.addEventListener('click', buildTripPostRequest);
 dateInput.addEventListener('click', domUpdates.changeDateSelection);
+// loginBtn.addEventListener('click', reloadPage)
+
 
 function loadAllData() {
-    Promise.all([fetchRequests.getDestinations(), fetchRequests.getTrips(), fetchRequests.getTravelers(49)])
+    Promise.all([fetchRequests.getDestinations(), fetchRequests.getTrips(), fetchRequests.getTraveler(49)])
     .then(values => {
         destinations = generateDestinations(values[0]);
         trips = generateTrips(values[1], destinations);
@@ -36,20 +42,43 @@ function loadAllData() {
         domUpdates.displayPresentTrips(traveler);
         domUpdates.displayPendingTrips(traveler);
         domUpdates.displayDestinations(destinations);
+        // domUpdates.displayTravelerDashboard();
     });
 }
 
 function generateDestinations(allDestinations) {
     return new Destination(allDestinations);
-  }
+}
 
 function generateTrips(allTrips, destinations) {
     return allTrips.trips.map(trip => new Trip(trip, destinations));
 }
 
-function generateTraveler(traveler, trips) {
-    return new Traveler(traveler, trips);
+function generateTraveler(allTravelers, trips) {
+    // let id = findTravelerId();
+    // if (id <= 50 && id >= 1) {
+    //     // domUpdates.displayTravelerDashboard();
+    //     let currentTraveler = allTravelers.find(traveler => traveler.id === id);
+    return new Traveler(allTravelers, trips);
+    // }
 }
+
+// function findTravelerId(){
+//     console.log(username.value)
+//     if (username.value) {
+//         if (username.value.length === 10) {
+//             let id = username.value.slice(-2);
+//             return id;
+//         } else if (username.value.length === 9) {
+//             let id = username.value.slice(-1);
+//             return id;
+//         }
+//     }
+// }
+
+// function reloadPage() {
+//     location.reload();
+// }
 
 function getBookedDestination(event) {
     let all = document.getElementsByName('booked');

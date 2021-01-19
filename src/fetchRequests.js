@@ -23,8 +23,20 @@ const fetchRequests = {
       .catch(error => alert(error));
     },
 
-    getTravelers(id) {
+    getTraveler(id) {
       return fetch(`http://localhost:3001/api/v1/travelers/${id}`)
+      .then(response => {
+        if (!response.ok) {
+          throw Error(`${response.status} ${response.statusText}`);
+        }
+        return response;
+      })
+      .then(response => response.json())
+      .catch(error => alert(error));
+    },
+
+    getTravelers() {
+      return fetch("http://localhost:3001/api/v1/travelers")
       .then(response => {
         if (!response.ok) {
           throw Error(`${response.status} ${response.statusText}`);
