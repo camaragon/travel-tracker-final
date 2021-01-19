@@ -12,8 +12,6 @@ const numTravelersInput = document.querySelector('#num-of-travelers');
 const calcCostBtn = document.querySelector('#calc-cost');
 const submitBtn = document.querySelector('#submit-btn');
 
-
-
 let traveler;
 let destinations;
 let trips;
@@ -76,8 +74,6 @@ function buildEstimatedCost(event) {
     }
 }
 
-// function buildTripRequest(event) {
-// }
 
 function buildTripPostRequest(event) {
     // event.preventDefault();
