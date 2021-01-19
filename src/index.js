@@ -4,6 +4,7 @@ import './css/base.scss';
 import Destination from './Destination';
 import Trip from './Trip';
 import Traveler from './Traveler';
+const moment = require("moment");
 
 const dateInput = document.querySelector('#date');
 const durationInput = document.querySelector('#duration');
@@ -19,63 +20,77 @@ let bookedDestination;
 
 window.addEventListener('load', loadAllData);
 calcCostBtn.addEventListener('click', buildEstimatedCost)
-
+submitBtn.addEventListener('click', buildTripPostRequest);
 
 function loadAllData() {
     Promise.all([fetchRequests.getDestinations(), fetchRequests.getTrips(), fetchRequests.getTravelers(49)])
     .then(values => {
-        generateDestinations(values[0]);
-        generateTrips(values[1], destinations);
-        generateTraveler(values[2], trips);
-        // domUpdates.displayGreeting(traveler);
-        // domUpdates.displayPastTrips(traveler);
-        // domUpdates.displayUpcomingTrips(traveler);
-        // domUpdates.displayPresentTrips(traveler);
-        // domUpdates.displayPendingTrips(traveler);
-        // domUpdates.displayDestinations(destinations);
+        destinations = generateDestinations(values[0]);
+        trips = generateTrips(values[1], destinations);
+        traveler = generateTraveler(values[2], trips);
+        domUpdates.displayGreeting(traveler);
+        domUpdates.displayPastTrips(traveler);
+        domUpdates.displayUpcomingTrips(traveler);
+        domUpdates.displayPresentTrips(traveler);
+        domUpdates.displayPendingTrips(traveler);
+        domUpdates.displayDestinations(destinations);
     });
 }
 
-// const bookedRadios = document.querySelectorAll('input[name="booked"]');
-
 function generateDestinations(allDestinations) {
-    destinations = new Destination(allDestinations);
-    domUpdates.displayDestinations(destinations);
+    return new Destination(allDestinations);
   }
 
 function generateTrips(allTrips, destinations) {
-    trips = allTrips.trips.map(trip => new Trip(trip, destinations));
-
+    return allTrips.trips.map(trip => new Trip(trip, destinations));
 }
 
 function generateTraveler(traveler, trips) {
-    traveler = new Traveler(traveler, trips);
-    domUpdates.displayGreeting(traveler);
-    domUpdates.displayPastTrips(traveler);
-    domUpdates.displayUpcomingTrips(traveler);
-    domUpdates.displayPresentTrips(traveler);
-    domUpdates.displayPendingTrips(traveler);
+    return new Traveler(traveler, trips);
 }
 
 function getBookedDestination(event) {
-    event.preventDefault();
     let all = document.getElementsByName('booked');
     all.forEach(button => {
         if (button.checked) {
             let id = parseInt(button.value);
             bookedDestination = destinations.findDestinationById(id);
-            console.log(bookedDestination);
+            
         }
     })
 }
 
 function buildEstimatedCost(event) {
     getBookedDestination(event);
+    event.preventDefault();
     if (durationInput.value && numTravelersInput.value && dateInput.value && bookedDestination) {
         const lodgingCost = (bookedDestination.estimatedLodgingCostPerDay * durationInput.value);
         const flightCost = (bookedDestination.estimatedFlightCostPerPerson * numTravelersInput.value);
         const totalCost = Math.floor((lodgingCost + flightCost) * 1.1);
         domUpdates.displayEstimatedCost(totalCost);
+    } else {
+        event.preventDefault();
+        domUpdates.displayErrorMessage();
+    }
+}
+
+// function buildTripRequest(event) {
+// }
+
+function buildTripPostRequest(event) {
+    // event.preventDefault();
+    getBookedDestination(event);
+    if (durationInput.value && numTravelersInput.value && dateInput.value && bookedDestination) {
+        let tripData = trips.find(trip => trip.destinationID === bookedDestination.id);
+        let newTrip = new Trip(tripData, destinations);
+        newTrip.id = trips.length + 1;
+        newTrip.userID = traveler.id;
+        newTrip.numberOfTravelers = numTravelersInput.value;
+        newTrip.date = moment(dateInput.value).format('YYYY/MM/DD');
+        newTrip.duration = durationInput.value;
+        newTrip.status = 'pending';
+        fetchRequests.postTrip(newTrip);
+        // location.reload();
     } else {
         event.preventDefault();
         domUpdates.displayErrorMessage();
