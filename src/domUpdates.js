@@ -1,3 +1,5 @@
+const moment = require("moment");
+
 const domUpdates = {
 
     displayGreeting(traveler) {
@@ -20,10 +22,11 @@ const domUpdates = {
                 let pastTrip = `<div class="trips-card">
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
-                <p>Depart: ${trip.date}</p>
-                <p>${trip.travelers} Travelers</p>
+                <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
+                <p>Travelers: ${trip.travelers}</p>
                 <p>${trip.duration} Days</p>
-                <p>Status: ${trip.status}</p>
+                <p>Status: ${trip.status.toUpperCase()}</p>
+                <p>Total: $${trip.totalCost}</p>
               </div>`
                 pastTrips.insertAdjacentHTML("beforeend", pastTrip);
             })
@@ -42,10 +45,11 @@ const domUpdates = {
                 let upcomingTrip = `<div class="trips-card">
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
-                <p>Depart: ${trip.date}</p>
-                <p>${trip.travelers} Travelers</p>
+                <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
+                <p>Travelers: ${trip.travelers}</p>
                 <p>${trip.duration} Days</p>
-                <p>Status: ${trip.status}</p>
+                <p>Status: ${trip.status.toUpperCase()}</p>
+                <p>Total: $${trip.totalCost}</p>
               </div>`
                 upcomingTrips.insertAdjacentHTML("beforeend", upcomingTrip);
             })
@@ -64,10 +68,11 @@ const domUpdates = {
                 let presentTrip = `<div class="trips-card">
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
-                <p>Depart: ${trip.date}</p>
-                <p>${trip.travelers} Travelers</p>
+                <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
+                <p>Travelers: ${trip.travelers}</p>
                 <p>${trip.duration} Days</p>
-                <p>Status: ${trip.status}</p>
+                <p>Status: ${trip.status.toUpperCase()}</p>
+                <p>Total: $${trip.totalCost}</p>
               </div>`
                 presentTrips.insertAdjacentHTML("beforeend", presentTrip);
             })
@@ -86,10 +91,11 @@ const domUpdates = {
                 let pendingTrip = `<div class="trips-card">
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
-                <p>Depart: ${trip.date}</p>
-                <p>${trip.travelers} Travelers</p>
+                <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
+                <p>Travelers: ${trip.travelers}</p>
                 <p>${trip.duration} Days</p>
-                <p>Status: ${trip.status}</p>
+                <p>Status: ${trip.status.toUpperCase()}</p>
+                <p>Total: $${trip.totalCost}</p>
               </div>`
                 pendingTrips.insertAdjacentHTML("beforeend", pendingTrip);
             })
@@ -103,12 +109,30 @@ const domUpdates = {
             <p>${destination.destination}</p>
             <img class="destination-img" src=${destination.image} alt=${destination.alt}>
             <div class="stacked">
-              <label for="">Book</label>
-              <input type="checkbox">
+              <label for="booked-radio-button">Book</label>
+              <input type="radio" name="booked" value="${destination.id}" id="booked-radio-button">
             </div>
           </div>`
           destinationSection.insertAdjacentHTML("beforeend", destinationHTML)
         })
+    },
+
+    changeDateSelection() {
+      let dateSelection = document.querySelector('#date');
+      let currentDate = moment().format().split('T')[0];
+      dateSelection.setAttribute('min', currentDate);
+    },
+    
+    displayEstimatedCost(total) {
+      const estCost = document.querySelector('#form-info');
+      estCost.innerText = `Estimated Trip Cost: $${total} (includes 10% agent fee)`;
+      estCost.style.color = '#0000FF';
+    },
+
+    displayErrorMessage() {
+      const errMsg = document.querySelector('#form-info');
+      errMsg.innerText = '🚨 Looks like you forgot to select an input! 🚨';
+      errMsg.style.color = '#ff0000';
     }
 }
 
