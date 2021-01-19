@@ -22,28 +22,31 @@ let traveler;
 let destinations;
 let trips;
 let bookedDestination;
+let loggedIn = false;
 
 window.addEventListener('load', loadAllData);
 calcCostBtn.addEventListener('click', buildEstimatedCost)
 submitBtn.addEventListener('click', buildTripPostRequest);
 dateInput.addEventListener('click', domUpdates.changeDateSelection);
-// loginBtn.addEventListener('click', reloadPage)
+loginBtn.addEventListener('click', logInTraveler);
 
 
-function loadAllData() {
-    Promise.all([fetchRequests.getDestinations(), fetchRequests.getTrips(), fetchRequests.getTraveler(49)])
-    .then(values => {
-        destinations = generateDestinations(values[0]);
-        trips = generateTrips(values[1], destinations);
-        traveler = generateTraveler(values[2], trips);
-        domUpdates.displayGreeting(traveler);
-        domUpdates.displayPastTrips(traveler);
-        domUpdates.displayUpcomingTrips(traveler);
-        domUpdates.displayPresentTrips(traveler);
-        domUpdates.displayPendingTrips(traveler);
-        domUpdates.displayDestinations(destinations);
-        // domUpdates.displayTravelerDashboard();
-    });
+function loadAllData(id) {
+    if (loggedIn) {
+        Promise.all([fetchRequests.getDestinations(), fetchRequests.getTrips(), fetchRequests.getTraveler(id)])
+        .then(values => {
+            destinations = generateDestinations(values[0]);
+            trips = generateTrips(values[1], destinations);
+            traveler = generateTraveler(values[2], trips);
+            domUpdates.displayGreeting(traveler);
+            domUpdates.displayPastTrips(traveler);
+            domUpdates.displayUpcomingTrips(traveler);
+            domUpdates.displayPresentTrips(traveler);
+            domUpdates.displayPendingTrips(traveler);
+            domUpdates.displayDestinations(destinations);
+            // domUpdates.displayTravelerDashboard();
+        });
+    }
 }
 
 function generateDestinations(allDestinations) {
@@ -63,18 +66,27 @@ function generateTraveler(allTravelers, trips) {
     // }
 }
 
-// function findTravelerId(){
-//     console.log(username.value)
-//     if (username.value) {
-//         if (username.value.length === 10) {
-//             let id = username.value.slice(-2);
-//             return id;
-//         } else if (username.value.length === 9) {
-//             let id = username.value.slice(-1);
-//             return id;
-//         }
-//     }
-// }
+function findTravelerId(){
+    console.log(username.value)
+    if (username.value) {
+        if (username.value.match(/[a-zA-Z]+/g)[0] === 'traveler') {
+            let id = username.value.match(/\d+/g)[0];
+            return id;
+        }
+    }
+}
+
+function logInTraveler() {
+    console.log(username.value)
+    if (username.value && password.value) {
+        let id = findTravelerId();
+        loggedIn = true;
+        loadAllData(id);
+        domUpdates.displayTravelerDashboard();
+    } else {
+        console.log('incorrect');
+    }
+}
 
 // function reloadPage() {
 //     location.reload();
