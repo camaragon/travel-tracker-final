@@ -146,9 +146,9 @@ const domUpdates = {
     },
 
     displayLoginError(username) {
-      const login = document.querySelector('.login');
-      let errMsg = `🚨 The username ${username} is invalid! 🚨`;
-      login.insertAdjacentHTML('afterbegin', errMsg);
+      const errMsg = document.querySelector('.login-error');
+      errMsg.innerText = `🚨 The username ${username} is invalid! 🚨`;
+      errMsg.style.color = '#ff0000';
     }
 
 
