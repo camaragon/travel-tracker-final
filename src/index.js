@@ -119,7 +119,7 @@ function buildEstimatedCost(event) {
 
 
 function buildTripPostRequest(event) {
-    // event.preventDefault();
+    event.preventDefault();
     getBookedDestination(event);
     if (durationInput.value && numTravelersInput.value && dateInput.value && bookedDestination) {
         let tripData = trips.find(trip => trip.destinationID === bookedDestination.id);
@@ -131,9 +131,10 @@ function buildTripPostRequest(event) {
         newTrip.duration = durationInput.value;
         newTrip.status = 'pending';
         fetchRequests.postTrip(newTrip);
-        // location.reload();
+        loadAllData(traveler.id);
     } else {
         event.preventDefault();
         domUpdates.displayErrorMessage();
     }
 }
+
