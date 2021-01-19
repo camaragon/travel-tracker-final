@@ -105,12 +105,12 @@ const domUpdates = {
     displayDestinations(destinations) {
         const destinationSection = document.querySelector('#destinations');
         destinations.allDestinations.forEach(destination => {
-            let destinationHTML = `<div class="destinations-card" id="${destination.id}">
+            let destinationHTML = `<div class="destinations-card">
             <p>${destination.destination}</p>
             <img class="destination-img" src=${destination.image} alt=${destination.alt}>
             <div class="stacked">
-              <label for="booked-radio-button">Book</label>
-              <input type="radio" name="booked" value="${destination.id}" id="booked-radio-button">
+              <label for="${destination.id}">Book</label>
+              <input type="radio" name="booked" value="${destination.id}" id="${destination.id}">
             </div>
           </div>`
           destinationSection.insertAdjacentHTML("beforeend", destinationHTML)
