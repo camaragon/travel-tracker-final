@@ -85,8 +85,8 @@ function generateTraveler(allTravelers, trips) {
             newTrip.duration = durationInput.value;
             newTrip.status = 'pending';
             fetchRequests.postTrip(newTrip);
-            // fetchPendingCards(traveler.id);
-            loadAllData(traveler.id);
+            fetchPendingCards(traveler.id);
+            // loadAllData(traveler.id);
         } else {
             event.preventDefault();
             domUpdates.displayErrorMessage();
@@ -118,11 +118,6 @@ function logInTraveler(event) {
     }
 }
 
-// function reloadPage() {
-//     location.reload();
-// }
-
-
 function buildEstimatedCost(event) {
     getBookedDestination(event);
     event.preventDefault();
@@ -139,10 +134,13 @@ function buildEstimatedCost(event) {
 
 
 
-// function fetchPendingCards(id) {
-//     trips = fetchRequests.getTrips()
-//     traveler = generateTraveler(fetchRequests.getTraveler(id), trips);
-//     domUpdates.displayPendingTrips(traveler);
-//     domUpdates.displayGreeting(traveler);
-// }
+function fetchPendingCards(id) {
+    setTimeout(function() {
+        // trips = fetchRequests.getTrips()
+        // traveler = generateTraveler(fetchRequests.getTraveler(id), trips);
+        // domUpdates.displayPendingTrips(traveler);
+        // domUpdates.displayGreeting(traveler);
+        loadAllData(id);
+    }, 3000)
+}
 

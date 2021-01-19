@@ -4,8 +4,9 @@ const domUpdates = {
 
     displayGreeting(traveler) {
         const welcome = document.querySelector('.welcome');
-        welcome.style.display = 'none';
+        // welcome.style.display = 'none';
         const greeting = document.querySelector('#greeting');
+        greeting.innerHTML= '';
         let firstName = traveler.name.split(' ')[0];
         let newGreeting = `<h2>Welcome, ${firstName}!</h2>
         <p>You've spent $${traveler.totalAmountSpent} on trips in 2021</p>`;
@@ -14,6 +15,7 @@ const domUpdates = {
 
     displayPastTrips(traveler) {
         const pastTrips = document.querySelector('#past-trips');
+        pastTrips.innerHTML = '';
         if (traveler.pastTrips.length === 0) {
             const noTrips = `<div class="no-trips-card">
             <h3>No Past Trips</h3>
@@ -37,6 +39,7 @@ const domUpdates = {
 
     displayUpcomingTrips(traveler) {
         const upcomingTrips = document.querySelector('#upcoming-trips');
+        upcomingTrips.innerHTML = '';
         if (traveler.upcomingTrips.length === 0) {
             const noTrips = `<div class="no-trips-card">
             <h3>No Upcoming Trips</h3>
@@ -60,8 +63,9 @@ const domUpdates = {
 
     displayPresentTrips(traveler) {
         const presentTrips = document.querySelector('#present-trips');
+        presentTrips.innerHTML = '';
         if (traveler.presentTrips.length === 0) {
-            const noTrips = `<div class="no-trips-card">
+            let noTrips = `<div class="no-trips-card">
             <h3>No Present Trips</h3>
           </div>`
             presentTrips.insertAdjacentHTML("beforeend", noTrips);
@@ -83,6 +87,7 @@ const domUpdates = {
 
     displayPendingTrips(traveler) {
         const pendingTrips = document.querySelector('#pending-trips');
+        pendingTrips.innerHTML = '';
         if (traveler.pendingTrips.length === 0) {
             let noTrips = `<div class="no-trips-card">
             <h3>No Pending Trips</h3>
@@ -106,6 +111,7 @@ const domUpdates = {
 
     displayDestinations(destinations) {
         const destinationSection = document.querySelector('#destinations');
+        destinationSection.innerHTML = '';
         destinations.allDestinations.forEach(destination => {
             let destinationHTML = `<div class="destinations-card">
             <p>${destination.destination}</p>
