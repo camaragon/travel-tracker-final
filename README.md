@@ -12,6 +12,8 @@ Password: travel2020 (any password will work, but travel2020 is suggested)
 
 ![image of dashboard](https://i.gyazo.com/c6264efc25b895c4d0d42516153ee325.jpg)
 
+![gif of site](https://media.giphy.com/media/wdnFDp3YX1Qkxpg8xs/giphy.gif)
+
 ## How To Install
 1. `fork` this repository
 2. `git clone` it down to your command line
