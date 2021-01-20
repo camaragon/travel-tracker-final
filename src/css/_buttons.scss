@@ -1,0 +1,18 @@
+.login-button {
+    @include setDimensions(10%, 10%);
+    margin-top: 5%;
+    transition: 300ms ease;
+  
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+
+  .input-btn {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    background-color: $pastel-purple;
+  }
