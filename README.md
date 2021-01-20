@@ -14,6 +14,9 @@ Password: travel2020 (any password will work, but travel2020 is suggested)
 
 ![gif of site](https://media.giphy.com/media/wdnFDp3YX1Qkxpg8xs/giphy.gif)
 
+Received a 100% for accessibility on lighthouse
+![image of dashboard](https://i.gyazo.com/f294b1b512d38463f355a2457b17ca9f.png)
+
 ## How To Install
 1. `fork` this repository
 2. `git clone` it down to your command line
