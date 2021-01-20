@@ -16,7 +16,6 @@ const submitBtn = document.querySelector('#submit-btn');
 const username = document.querySelector('input[name="username"]')
 const password = document.querySelector('input[name="password"]');
 const loginBtn = document.querySelector('.login-button');
-const body = document.querySelector('.body');
 
 
 let traveler;
@@ -45,7 +44,6 @@ function loadAllData(id) {
             domUpdates.displayPresentTrips(traveler);
             domUpdates.displayPendingTrips(traveler);
             domUpdates.displayDestinations(destinations);
-            // domUpdates.displayTravelerDashboard();
         });
     }
 }
@@ -73,7 +71,6 @@ function getBookedDestination(event) {
 }
 
 function buildTripPostRequest(event) {
-    // debugger
     event.preventDefault();
     getBookedDestination(event);
     if (durationInput.value && numTravelersInput.value && dateInput.value && bookedDestination) {
@@ -102,7 +99,6 @@ function checkTravelersUsername() {
 
 function logInTraveler(event) {
     event.preventDefault();
-    console.log(username.value)
     if (username.value && password.value) {
         if (checkTravelersUsername() && username.value.match(/\d+/g)[0] > 0 &&
         username.value.match(/\d+/g)[0] <= 50) {
@@ -131,12 +127,10 @@ function buildEstimatedCost(event) {
     }
 }
 
-
-
 function fetchPendingCards(id) {
     document.querySelector('.body').style.cursor = 'wait';
     setTimeout(function() {
-        document.querySelector('.body').style.cursor = 'none';
+        document.querySelector('.body').style.cursor = 'pointer';
         loadAllData(id);
     }, 2000)
 }

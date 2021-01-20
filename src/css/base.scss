@@ -5,7 +5,7 @@
 @import 'trip-form';
 @import 'destinations';
 @import 'sidebar';
-@import 'normalize-scss';
+@import 'normalize';
 
 .hidden {
   display: none!important;
@@ -39,7 +39,6 @@
 // MEDIA QUERIES
   @media screen and (max-width: 1200px) {
   .body {
-    // display: grid;
     display: block;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto;
