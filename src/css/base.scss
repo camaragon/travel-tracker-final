@@ -10,6 +10,14 @@ $primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,1
  
 }
 
+@import 'variables';
+@import 'header';
+@import 'login';
+@import 'buttons';
+@import 'trip-form';
+@import 'destinations';
+@import 'sidebar';
+
 .hidden {
   display: none!important;
 }
@@ -29,7 +37,7 @@ $primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,1
 //   height: 100%;
 // }
 
-body {
+.body {
   // background: $primary-background;
   // display: grid;
   grid-template-columns: 1fr 2fr;
