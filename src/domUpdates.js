@@ -3,15 +3,19 @@ const moment = require("moment");
 const domUpdates = {
 
     displayGreeting(traveler) {
+        const welcome = document.querySelector('.welcome');
+        // welcome.style.display = 'none';
         const greeting = document.querySelector('#greeting');
+        greeting.innerHTML= '';
         let firstName = traveler.name.split(' ')[0];
         let newGreeting = `<h2>Welcome, ${firstName}!</h2>
-        <p>You've spent $${traveler.totalAmountSpent} on trips in 2021!</p>`;
+        <p>You've spent $${traveler.totalAmountSpent} on trips in 2021</p>`;
         greeting.insertAdjacentHTML('afterbegin', newGreeting);
     },
 
     displayPastTrips(traveler) {
         const pastTrips = document.querySelector('#past-trips');
+        pastTrips.innerHTML = '';
         if (traveler.pastTrips.length === 0) {
             const noTrips = `<div class="no-trips-card">
             <h3>No Past Trips</h3>
@@ -35,6 +39,7 @@ const domUpdates = {
 
     displayUpcomingTrips(traveler) {
         const upcomingTrips = document.querySelector('#upcoming-trips');
+        upcomingTrips.innerHTML = '';
         if (traveler.upcomingTrips.length === 0) {
             const noTrips = `<div class="no-trips-card">
             <h3>No Upcoming Trips</h3>
@@ -58,8 +63,9 @@ const domUpdates = {
 
     displayPresentTrips(traveler) {
         const presentTrips = document.querySelector('#present-trips');
+        presentTrips.innerHTML = '';
         if (traveler.presentTrips.length === 0) {
-            const noTrips = `<div class="no-trips-card">
+            let noTrips = `<div class="no-trips-card">
             <h3>No Present Trips</h3>
           </div>`
             presentTrips.insertAdjacentHTML("beforeend", noTrips);
@@ -81,6 +87,7 @@ const domUpdates = {
 
     displayPendingTrips(traveler) {
         const pendingTrips = document.querySelector('#pending-trips');
+        pendingTrips.innerHTML = '';
         if (traveler.pendingTrips.length === 0) {
             let noTrips = `<div class="no-trips-card">
             <h3>No Pending Trips</h3>
@@ -104,13 +111,14 @@ const domUpdates = {
 
     displayDestinations(destinations) {
         const destinationSection = document.querySelector('#destinations');
+        destinationSection.innerHTML = '';
         destinations.allDestinations.forEach(destination => {
-            let destinationHTML = `<div class="destinations-card" id="${destination.id}">
+            let destinationHTML = `<div class="destinations-card">
             <p>${destination.destination}</p>
             <img class="destination-img" src=${destination.image} alt=${destination.alt}>
             <div class="stacked">
-              <label for="booked-radio-button">Book</label>
-              <input type="radio" name="booked" value="${destination.id}" id="booked-radio-button">
+              <label for="${destination.id}">Book</label>
+              <input type="radio" name="booked" value="${destination.id}" id="${destination.id}">
             </div>
           </div>`
           destinationSection.insertAdjacentHTML("beforeend", destinationHTML)
@@ -132,6 +140,20 @@ const domUpdates = {
     displayErrorMessage() {
       const errMsg = document.querySelector('#form-info');
       errMsg.innerText = '🚨 Looks like you forgot to select an input! 🚨';
+      errMsg.style.color = '#ff0000';
+    },
+
+    displayTravelerDashboard() {
+      document.querySelector('.login-page').classList.toggle('hidden');
+      document.querySelector('.body').style.display = 'grid';
+      document.querySelector('.sidebar').classList.toggle('hidden');
+      document.querySelector('.form').classList.toggle('hidden');
+      document.querySelector('.destinations').classList.toggle('hidden');
+    },
+
+    displayLoginError(username) {
+      const errMsg = document.querySelector('.login-error');
+      errMsg.innerText = `🚨 The username ${username} is invalid! 🚨`;
       errMsg.style.color = '#ff0000';
     }
 }

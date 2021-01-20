@@ -6,41 +6,56 @@
     <link rel="stylesheet" type="text/scss" href="./css/base.scss">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body class="body">
     <header>
-      <div>
-        <img src="" alt="">
-        <h2>"Yeah, it's that easy..."</h2>
+      <div class="img-quote stacked">
+        <img src="./images/travel.png" alt="">
+        <h2 class="quote">"Yeah, it's that easy..."</h2>
       </div>
       <div class="stacked" id="greeting">
+        
+        <h2 class="welcome">Welcome, Traveler!</h2>
       </div>
-      <h1>Ready, Set, Travel</h1>
+      
+      <h1 class="title">☁️Ready, Set, Travel☁️</h1>
     </header>
-    <aside>
+    <section class="login-page">
+      <form class="login">
+        <p class="login-error"></p>
+        <h1>☁️Ready, Set, Travel☁️</h1>
+        <label for="username">Username</label>
+        <input type="text" name="username" placeholder="traveler##" required>
+        <label for="password">Password</label>
+        <input type="text" name="password" placeholder="travel2020" required>
+        <button class="login-button">Login</button>
+      </form>
+    </section>
+    <aside class="sidebar hidden">
       <h2 class="trips" >Trips</h2>
       <h3 class="trip-name">Present</h3>
-        <div class="trips-box" id="present-trips">
-      
-        </div>
+      <div class="trips-box" id="present-trips">
+        
+      </div>
       <h3 class="trip-name">Pending</h3>
-        <div class="trips-box" id="pending-trips">
-      
-        </div>
-        <h3 class="trip-name">Upcoming</h3>
-          <div class="trips-box" id="upcoming-trips">
-
-          </div>
-        <h3 class="trip-name">Past</h3>
-          <div class="trips-box" id="past-trips">
-          
-          </div>
+      <div class="trips-box" id="pending-trips">
+        
+      </div>
+      <h3 class="trip-name">Upcoming</h3>
+      <div class="trips-box" id="upcoming-trips">
+        
+      </div>
+      <h3 class="trip-name">Past</h3>
+      <div class="trips-box" id="past-trips">
+        
+      </div>
     </aside>
-    <form action="">
+    <form action="" class="form hidden">
       <div class="input-form ">
-      <h2 class="trip-request">Request A Trip!</h2>
+        <h2 class="trip-request">Request A Trip!</h2>
         <label for="date">Date</label>
         <input type="date" name="date" placeholder="Date" id="date">
         <label class="input-label" for="duration">Duration</label>
@@ -57,12 +72,12 @@
       </div>
       
     </form>
-    <main>
-      <h2 class="destination-header">All Destinations</h2>
-        <section class="destinations-wrapper" id="destinations">
-          
-        </section>
-    </main>
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
+    <main class="destinations hidden"
+    <h2 class="destination-header">All Destinations</h2>
+    <section class="destinations-wrapper" id="destinations">
+      
+    </section>
+  </main>
+  <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>
