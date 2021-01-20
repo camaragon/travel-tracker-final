@@ -3,10 +3,8 @@ const moment = require("moment");
 const domUpdates = {
 
     displayGreeting(traveler) {
-        const welcome = document.querySelector('.welcome');
-        // welcome.style.display = 'none';
         const greeting = document.querySelector('#greeting');
-        greeting.innerHTML= '';
+        greeting.innerHTML = '';
         let firstName = traveler.name.split(' ')[0];
         let newGreeting = `<h2>Welcome, ${firstName}!</h2>
         <p>You've spent $${traveler.totalAmountSpent} on trips in 2021</p>`;
