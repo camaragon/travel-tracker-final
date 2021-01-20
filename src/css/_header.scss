@@ -1,0 +1,20 @@
+header {
+    grid-area: header;
+    @include displayFlex(row, center, space-between);
+    background-color: $pastel-purple;
+    border-bottom: 3px solid black;
+  }
+  
+  .title{
+    margin-right: 5%
+  }
+  
+  .quote {
+    margin: 0;
+    white-space: nowrap;
+  }
+  
+  .img-quote {
+    margin-left: 5%;
+    margin-bottom: 5px;
+  }

@@ -1,0 +1,21 @@
+.login-page {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid black;
+    height: 83%;
+    background-image: url('../images/clouds.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+  
+  .login {
+    border: 1px solid black;
+    @include setDimensions(20rem, 50rem);
+    @include displayFlex(column, center, center);
+    background-color: #C7EDE6;
+    transition: 300ms ease;
+  }
+  
+  

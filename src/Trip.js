@@ -20,6 +20,6 @@ class Trip {
         const totalCost = Math.floor(((destination.estimatedLodgingCostPerDay * this.duration) + (destination.estimatedFlightCostPerPerson * this.travelers)) * 1.1);
         return totalCost;
     }
-};
+}
 
 module.exports = Trip;

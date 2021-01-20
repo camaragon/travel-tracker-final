@@ -1,0 +1,30 @@
+form {
+    grid-area: form;
+    @include displayFlex(row, center, space-around);
+    grid-row: 2 / 3;
+    background-color: #FFFFF2;
+    border-bottom: 3px solid black;
+  }
+  
+  .trip-request {
+    margin: 0;
+    margin-bottom: 2px;
+  }
+  
+  .input-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .input-label {
+    padding-top: 6px;
+  }
+  
+  .form-message {
+    margin: 0;
+  }
+  
+  .err-msg {
+    color: red;
+  }

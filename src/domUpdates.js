@@ -3,10 +3,8 @@ const moment = require("moment");
 const domUpdates = {
 
     displayGreeting(traveler) {
-        const welcome = document.querySelector('.welcome');
-        // welcome.style.display = 'none';
         const greeting = document.querySelector('#greeting');
-        greeting.innerHTML= '';
+        greeting.innerHTML = '';
         let firstName = traveler.name.split(' ')[0];
         let newGreeting = `<h2>Welcome, ${firstName}!</h2>
         <p>You've spent $${traveler.totalAmountSpent} on trips in 2021</p>`;
@@ -26,7 +24,7 @@ const domUpdates = {
                 let pastTrip = `<div class="trips-card">
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
-                <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
+                <p>Depart: ${trip.date}</p>
                 <p>Travelers: ${trip.travelers}</p>
                 <p>${trip.duration} Days</p>
                 <p>Status: ${trip.status.toUpperCase()}</p>
@@ -50,7 +48,7 @@ const domUpdates = {
                 let upcomingTrip = `<div class="trips-card">
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
-                <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
+                <p>Depart: ${trip.date}</p>
                 <p>Travelers: ${trip.travelers}</p>
                 <p>${trip.duration} Days</p>
                 <p>Status: ${trip.status.toUpperCase()}</p>
@@ -74,7 +72,7 @@ const domUpdates = {
                 let presentTrip = `<div class="trips-card">
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
-                <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
+                <p>Depart: ${trip.date}</p>
                 <p>Travelers: ${trip.travelers}</p>
                 <p>${trip.duration} Days</p>
                 <p>Status: ${trip.status.toUpperCase()}</p>
@@ -98,7 +96,7 @@ const domUpdates = {
                 let pendingTrip = `<div class="trips-card">
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
-                <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
+                <p>Depart: ${trip.date}</p>
                 <p>Travelers: ${trip.travelers}</p>
                 <p>${trip.duration} Days</p>
                 <p>Status: ${trip.status.toUpperCase()}</p>
