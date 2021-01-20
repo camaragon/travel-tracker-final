@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Ready, Set, Travel</title>
     <link rel="stylesheet" type="text/scss" href="./css/base.scss">
+    <link rel="stylesheet" type="text/scss" href="./css/normalize.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,7 +22,7 @@
       </div>
       <h1 class="title">☁️Ready, Set, Travel☁️</h1>
     </header>
-    <section class="login-page hidden">
+    <section class="login-page">
       <form class="login">
         <p class="login-error"></p>
         <h1>☁️Ready, Set, Travel☁️</h1>
@@ -32,7 +33,7 @@
         <button class="login-button">Login</button>
       </form>
     </section>
-    <aside class="sidebar">
+    <aside class="sidebar hidden">
       <h2 class="trips" >Trips</h2>
       <h3 class="trip-name">Present</h3>
       <div class="trips-box" id="present-trips"> 
@@ -47,7 +48,7 @@
       <div class="trips-box" id="past-trips">
       </div>
     </aside>
-    <form action="" class="form">
+    <form action="" class="form hidden">
       <div class="input-form ">
         <h2 class="trip-request">Request A Trip!</h2>
         <label for="date">Date</label>
@@ -65,7 +66,7 @@
         <p id="form-info">See how much it would cost right now!</p>
       </div>
     </form>
-    <main class="destinations"
+    <main class="destinations hidden"
     <h2 class="destination-header">All Destinations</h2>
     <section class="destinations-wrapper" id="destinations">
     </section>

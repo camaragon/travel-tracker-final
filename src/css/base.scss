@@ -5,6 +5,7 @@
 @import 'trip-form';
 @import 'destinations';
 @import 'sidebar';
+@import 'normalize-scss';
 
 .hidden {
   display: none!important;
@@ -21,7 +22,7 @@
 }
 
 .body {
-  display: grid;
+  // display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 15% 33% 52%;
   grid-template-areas:
@@ -32,12 +33,14 @@
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  display: block;
 }
 
 // MEDIA QUERIES
   @media screen and (max-width: 1200px) {
   .body {
-    display: grid;
+    // display: grid;
+    display: block;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto;
     grid-template-areas:
@@ -125,6 +128,14 @@
       overflow-y: auto;
     }
 
+    .login {
+      border: 1px solid black;
+      @include setDimensions(20rem, 35rem);
+      @include displayFlex(column, center, center);
+      background-color: #C7EDE6;
+      transition: 300ms ease;
+    }
+
     @media screen and (max-width: 600px) {
       .trips-card {
         display: grid;
@@ -154,6 +165,14 @@
       align-items: center;
       background-color: #FFFFF2;
       border-bottom: 3px solid black;
+    }
+
+    .login {
+      border: 1px solid black;
+      @include setDimensions(20rem, 25rem);
+      @include displayFlex(column, center, center);
+      background-color: #C7EDE6;
+      transition: 300ms ease;
     }
     
     @media screen and (max-width: 530px) {
