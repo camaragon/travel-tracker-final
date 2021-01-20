@@ -26,7 +26,7 @@ const domUpdates = {
                 let pastTrip = `<div class="trips-card">
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
-                <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
+                <p>Depart: ${trip.date}</p>
                 <p>Travelers: ${trip.travelers}</p>
                 <p>${trip.duration} Days</p>
                 <p>Status: ${trip.status.toUpperCase()}</p>
@@ -50,7 +50,7 @@ const domUpdates = {
                 let upcomingTrip = `<div class="trips-card">
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
-                <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
+                <p>Depart: ${trip.date}</p>
                 <p>Travelers: ${trip.travelers}</p>
                 <p>${trip.duration} Days</p>
                 <p>Status: ${trip.status.toUpperCase()}</p>
@@ -74,7 +74,7 @@ const domUpdates = {
                 let presentTrip = `<div class="trips-card">
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
-                <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
+                <p>Depart: ${trip.date}</p>
                 <p>Travelers: ${trip.travelers}</p>
                 <p>${trip.duration} Days</p>
                 <p>Status: ${trip.status.toUpperCase()}</p>
@@ -98,7 +98,7 @@ const domUpdates = {
                 let pendingTrip = `<div class="trips-card">
                 <img class="trip-img" src=${trip.image} alt=${trip.alt}>
                 <p>${trip.location}</p>
-                <p>Depart: ${moment(trip.date, 'll').format('l')}</p>
+                <p>Depart: ${trip.date}</p>
                 <p>Travelers: ${trip.travelers}</p>
                 <p>${trip.duration} Days</p>
                 <p>Status: ${trip.status.toUpperCase()}</p>
