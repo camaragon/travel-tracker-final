@@ -8,14 +8,9 @@ Username: traveler## (## can be any number from 1 - 50)
 Password: travel2020 (any password will work, but travel2020 is suggested)
 
 
-Link to GitHub Pages Site [here](https://deadbelly.github.io/whats-cookin/).
-(Note: you have to follow Step 7 of the installation instructions for the site to work properly)
+![image](https://i.gyazo.com/a820964a3af20ba16ad420ad7c55d449.jpg)
 
-![gif of site/random user](https://media.giphy.com/media/nh6LVl3mvjlg6wPsEB/giphy.gif)
-
-This site was designed to be responsive to screen size, as seen below.
-
-![gif of breakpoints](https://media.giphy.com/media/FyExsuM6CaQ6aGWOj8/giphy.gif)
+![](https://i.gyazo.com/c6264efc25b895c4d0d42516153ee325.jpg)
 
 ## How To Install
 1. `fork` this repository
@@ -25,18 +20,24 @@ This site was designed to be responsive to screen size, as seen below.
 5. Run `npm start`
 6. Copy and paste the domain from terminal into browser.
 7. Run 'npm start' for local server [here](https://github.com/turingschool-examples/travel-tracker-api) for API.
+(Note: you have to follow Step 7 of the installation instructions for the site to work properly)
 
 ## Features
-  * Traveler is 
+  * Traveler can login to the site using credentials from the login page.
+  * Traveler is presented with a dashboard of all their present, pending, upcoming and past trips.
+  * Traveler is given information on each trip.
+  * Traveler can fill out a form about a possible new trip and even select from a list of destinations with pictures of each.
+  * Traveler can get an estimated cost of the trip.
+  * Traveler can then submit their trip request and see a new pending trip card in their dashboard.
   
 ## Code Architecture
-  * `scripts.js`, `domUpdates.js`, `fetchRequests.js` - Deals with all of the DOM manipulation and is what allows for functionality on the webpage. `scripts.js` is pulling data from the data model and allowing it to be processed as manipulation on the DOM. `domUpdates.js` is where all the manipulation of the DOM elements is occuring and `fetchRequests.js` is where the API data is being fetched using `GET`. The seperation of files helps to maintain a more modular file structure.
+  * `index.js`, `domUpdates.js`, `fetchRequests.js` - Deals with all of the DOM manipulation and is what allows for functionality on the webpage. `scripts.js` is pulling data from the data model and allowing it to be processed as manipulation on the DOM. `domUpdates.js` is where all the manipulation of the DOM elements is occuring and `fetchRequests.js` is where the API data is being fetched using `GET`. The seperation of files helps to maintain a more modular file structure.
   
-  * `user.js`, `recipe.js`, `ingredient.js`, `pantry.js` - These are all of the class files which holds the data model and is directly manipulating any data that comes in from the API's.
+  * `Traveler.js`, `Trip.js`, `Destination.js` - These are all of the class files which holds the data model and is directly manipulating any data that comes in from the API's.
   
-  * `user-test.js`, `recipe-test.js`, `ingredient-test.js`, `pantry-test.js` - Testing for all of the class files, ensuring TDD and checking for any errors within the Data Model.
+  * `Traveler-test.js`, `Trip-test.js`, `Destination-test.js` - Testing for all of the class files, ensuring TDD and checking for any errors within the Data Model.
   
-  * `index.html`, `styles.scss` & all other `.scss` files - Used SASS for styling and broke them out into seperate files for mor modular file structuring. Used @mixins and SASS variables for readability and code effectiveness.
+  * `index.html`, `base.scss` & all other `.scss` files - Used SASS for styling and broke them out into seperate files for mor modular file structuring. Used @mixins and SASS/SCSS variables for readability and code effectiveness.
   
 ## Technologies Used
 1. JavaScript (vanilla)
@@ -45,14 +46,15 @@ This site was designed to be responsive to screen size, as seen below.
 4. Chai & Mocha
 5. SASS/SCSS
 6. Normalize.scss
+7. Moment.js
+
+# Wins and Challenges
+Definitely the hardest 5 days of work I think I have ever put into something before. This project left me feeling extremely accomplished, but completely exhausted at the same time. I felt very satisified with the HTML/SCSS layout of the site and my implementation of the class and testing files. I learned a lot about how to handle fetch calls, but it was something that I still had a hard time with. I want to learn the best practices of how a program should handle JavaScript fetch (GET, POST, DELETE) calls to the web API. All in all, I'm very pleased with this project due to how much I learned and the work ethic that I showed to myself, the whole thing was a win! 
 
 ## Future Iterations
- * When a user can cook a meal alert user that meal has been added to recipes to cook.
- * Add an missing images for recipes (specifically Double Raspberry Souffle).
- * Fix any tags displaying as "undefined".
- * Display all of the recipe's tags to the card.
- * Allow a user to set limits on whe they're low on specific ingredients and be notified to purchase more ingredients.
- * Consolidate search buttons and have the DOM update more fluildly.
+ * Add an admin dashboard and functionality for the admin.
+ * Allow user to delete a pending trip request.
+ * Allow user to sign out of their dashboard and go back to the login page.
 
 ## Project Members
 This project was designed and implemented by [Cameron Aragon](https://github.com/caragon4695) 
