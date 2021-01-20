@@ -23,7 +23,7 @@ Received a 100% for accessibility on lighthouse
 3. Navigate into the repository on your machine
 4. Run `npm install`
 5. Run `npm start`
-6. Copy and paste the domain from terminal into browser.
+6. Copy and paste the domain `http://localhost:8080/` from terminal into browser.
 7. Run 'npm start' for local server [here](https://github.com/turingschool-examples/travel-tracker-api) for API.
 (Note: you have to follow Step 7 of the installation instructions for the site to work properly)
 
