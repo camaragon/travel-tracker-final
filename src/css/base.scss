@@ -1,15 +1,3 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-;
-
-@mixin displayFlex($flex-direction, $align-items, $justify-content) {
-  display: flex;
-  flex-direction: $flex-direction;
-  align-items: $align-items;
-  justify-content: $justify-content;
- 
-}
-
 @import 'variables';
 @import 'header';
 @import 'login';
@@ -23,8 +11,7 @@ $primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,1
 }
 
 * {
-  // border: 1px solid red;
-  font-family: 'Architects Daughter', cursive;;
+  font-family: $primary-font;
 }
 
 .stacked {
@@ -33,37 +20,29 @@ $primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,1
   align-items: center;
 }
 
-// html {
-//   height: 100%;
-// }
-
 .body {
-  // background: $primary-background;
-  // display: grid;
+  display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 15% 33% 52%;
   grid-template-areas:
   "header header"
   "aside form"
   "aside main";
-  height: 100vh;
-  width: auto;
+  @include setDimensions(100vh, auto);
+  // height: 100vh;
+  // width: auto;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  display: block;
+  // display: block;
 }
 
 // HEADER
 header {
   grid-area: header;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #AAADC4;
-  // background-color: #DE6449;
+  @include displayFlex(row, center, space-between);
+  background-color: $pastel-purple;
   border-bottom: 3px solid black;
-  
 }
 
 .title{
@@ -72,7 +51,6 @@ header {
 
 .quote {
   margin: 0;
-  // margin-left: 10%;
   white-space: nowrap;
 }
 
@@ -83,23 +61,18 @@ header {
 // SIDEBAR
 aside {
   grid-area: aside;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  // overflow-y:scroll;
-  // grid-row: 2 / 5;
-  background-color: #407899;
+  @include displayFlex(column, center, space-around);
+  background-color: $easter-blue;
   border-bottom: 3px solid black;
   border-right: 1px solid black;
 }
 
 .trips-box {
-  width: 100%;
-  height: 100%;
+  @include setDimensions(100%, 100%);
+  // width: 100%;
+  // height: 100%;
   display: flex;
   flex-direction: column;
-  // align-items:center;
   background-color: #FFFFF2;
   overflow:auto;
   border: 3px solid black;
@@ -115,14 +88,12 @@ aside {
 }
 
 .trips-card {
-  // display: flex;
-  // align-items: center;
-  // justify-content: space-between;
+  // @include displayGrid(repeat(4, 1fr), repeat(2, 1fr));
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   border: 1px solid black;
-  background-color: #C7EDE6;
+  background-color: $aqua-blue;
   // height: 90%;
 }
 
@@ -138,10 +109,9 @@ aside {
 }
 
 .trip-img {
-  // max-height: 100%;
-  // max-width: 25%;
-  height: 100%;
-  width: 100%;
+  @include setDimensions(100%, 100%);
+  // height: 100%;
+  // width: 100%;
   grid-row: 1 / 3;
   grid-column: 1 / 2; 
   border: 2px solid black;
@@ -150,10 +120,11 @@ aside {
 // TRIP FORM
 form {
   grid-area: form;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  @include displayFlex(row, center, space-around);
+  // display: flex;
+  // flex-direction: row;
+  // align-items: center;
+  // justify-content: space-around;
   grid-row: 2 / 3;
   background-color: #FFFFF2;
   border-bottom: 3px solid black;
@@ -180,7 +151,7 @@ form {
 }
 
 button {
-  background-color: #AAADC4;
+  background-color: $pastel-purple;
 }
 
 .form-message {
@@ -197,9 +168,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  // grid-row: 3 / 4;
-  // background-color: #AAADC4;
-  background-color: #407899;
+  background-color: $easter-blue;
 }
 
 .destination-header {
@@ -207,32 +176,32 @@ main {
 }
 
 .destinations-wrapper {
-  height: 100%;
-  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  @include setDimensions(100%, 100%);
+  // height: 100%;
+  // width: 100%;
   grid-gap: 5px;
   padding: 5px;
   background-color: #8D909B;
-  background-color: #8D909B;
-  overflow-y: auto;
   border-top: 3px solid black;
+  overflow-y: auto;
 }
 
 .destinations-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  // background-color: #DE6449;
+  @include displayFlex(column, center, space-around);
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: space-around;
   border: solid 2px black;
-  background-color: #C7EDE6;
+  background-color: $aqua-blue;
 }
 
 .destination-img {
-  height: 240px;
-  width: 240px;
-  
+  @include setDimensions(240px, 240px);
+  // height: 240px;
+  // width: 240px;
   border: 3px solid black;
 }
 
@@ -251,26 +220,21 @@ main {
 
 .login {
   border: 1px solid black;
-  height: 20rem;
-  width: 50rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @include setDimensions(20rem, 50rem);
+  @include displayFlex(column, center, center);
   background-color: #C7EDE6;
   transition: 300ms ease;
   
 }
-
-
 .login-button {
+  @include setDimensions(10%, 10%);
   height: 10%;
   width: 10%;
   margin-top: 5%;
-  background-color: #AAADC4;
   transition: 300ms ease;
+
+  &:hover {
+    transform: scale(1.5);
+  }
 }
 
-.login-button:hover {
-  transform: scale(1.5);
-}
