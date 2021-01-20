@@ -1,16 +1,16 @@
 # Travel Tracker - Ready, Set, Travel
 
 ## About
-Ever need to book a trip, but can't stand the bland travel agency websites? Well look no further becasuse Ready, Set, Travel is here with a website that makes booking your next trip an adventure! At Ready, Set, Travel the motto is "Yeah, its that easy..." because everyone is saying that after using it. This was a solo project that gave me the opportunity to put everyhting I've learned at Turing so far, together. This was great practice on engraining TDD, web API fetch calls, SASS/SCSS, JavaScript iterator methods, modular file structuring, and so much more. The future traveler is et with a login page and the necessary credentials to sign on is the following:
+Ever need to book a trip, but can't stand the bland travel agency websites? Well look no further becasuse Ready, Set, Travel is here with a website that makes booking your next trip an adventure! At Ready, Set, Travel the motto is "Yeah, its that easy..." because everyone is saying that after using it. This was a solo project that gave me the opportunity to put everyhting I've learned at Turing so far, together. This was great practice on engraining TDD, web API fetch calls, SASS/SCSS, JavaScript iterator methods, modular file structuring, and so much more. The future traveler is met with a login page and the necessary credentials to sign on is the following:
 
 Username: traveler## (## can be any number from 1 - 50)
 
 Password: travel2020 (any password will work, but travel2020 is suggested)
 
 
-![image](https://i.gyazo.com/a820964a3af20ba16ad420ad7c55d449.jpg)
+![image of login page](https://i.gyazo.com/a820964a3af20ba16ad420ad7c55d449.jpg)
 
-![](https://i.gyazo.com/c6264efc25b895c4d0d42516153ee325.jpg)
+![image of dashboard](https://i.gyazo.com/c6264efc25b895c4d0d42516153ee325.jpg)
 
 ## How To Install
 1. `fork` this repository
