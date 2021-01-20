@@ -156,8 +156,6 @@ const domUpdates = {
       errMsg.innerText = `🚨 The username ${username} is invalid! 🚨`;
       errMsg.style.color = '#ff0000';
     }
-
-
 }
 
 export default domUpdates;

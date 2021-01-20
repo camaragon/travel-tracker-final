@@ -16,6 +16,7 @@ const submitBtn = document.querySelector('#submit-btn');
 const username = document.querySelector('input[name="username"]')
 const password = document.querySelector('input[name="password"]');
 const loginBtn = document.querySelector('.login-button');
+const body = document.querySelector('.body');
 
 
 let traveler;
@@ -61,40 +62,38 @@ function generateTraveler(allTravelers, trips) {
     return new Traveler(allTravelers, trips);
     }
 
-    function getBookedDestination(event) {
-        let all = document.getElementsByName('booked');
-        all.forEach(button => {
-            if (button.checked) {
-                let id = parseInt(button.value);
-                bookedDestination = destinations.findDestinationById(id);
-            }
-        })
-    }
-    
-    function buildTripPostRequest(event) {
-        // debugger
-        event.preventDefault();
-        getBookedDestination(event);
-        if (durationInput.value && numTravelersInput.value && dateInput.value && bookedDestination) {
-            let tripData = trips.find(trip => trip.destinationID === bookedDestination.id);
-            let newTrip = new Trip(tripData, destinations);
-            newTrip.id = trips.length + 1;
-            newTrip.userID = traveler.id;
-            newTrip.numberOfTravelers = numTravelersInput.value;
-            newTrip.date = moment(dateInput.value).format('YYYY/MM/DD');
-            newTrip.duration = durationInput.value;
-            newTrip.status = 'pending';
-            fetchRequests.postTrip(newTrip);
-            fetchPendingCards(traveler.id);
-            // loadAllData(traveler.id);
-        } else {
-            event.preventDefault();
-            domUpdates.displayErrorMessage();
+function getBookedDestination(event) {
+    let all = document.getElementsByName('booked');
+    all.forEach(button => {
+        if (button.checked) {
+            let id = parseInt(button.value);
+            bookedDestination = destinations.findDestinationById(id);
         }
+    })
+}
+
+function buildTripPostRequest(event) {
+    // debugger
+    event.preventDefault();
+    getBookedDestination(event);
+    if (durationInput.value && numTravelersInput.value && dateInput.value && bookedDestination) {
+        let tripData = trips.find(trip => trip.destinationID === bookedDestination.id);
+        let newTrip = new Trip(tripData, destinations);
+        newTrip.id = trips.length + 1;
+        newTrip.userID = traveler.id;
+        newTrip.numberOfTravelers = numTravelersInput.value;
+        newTrip.date = moment(dateInput.value).format('YYYY/MM/DD');
+        newTrip.duration = durationInput.value;
+        newTrip.status = 'pending';
+        fetchRequests.postTrip(newTrip);
+        fetchPendingCards(traveler.id);
+    } else {
+        event.preventDefault();
+        domUpdates.displayErrorMessage();
     }
+}
 
 function checkTravelersUsername() {
-    console.log(username.value)
     let word = username.value.match(/[a-zA-Z]+/g)[0];
     if (word === 'traveler' && username.value.match(/\d+/g)[0]) {
         return true;
@@ -135,12 +134,10 @@ function buildEstimatedCost(event) {
 
 
 function fetchPendingCards(id) {
+    document.querySelector('.body').style.cursor = 'wait';
     setTimeout(function() {
-        // trips = fetchRequests.getTrips()
-        // traveler = generateTraveler(fetchRequests.getTraveler(id), trips);
-        // domUpdates.displayPendingTrips(traveler);
-        // domUpdates.displayGreeting(traveler);
+        document.querySelector('.body').style.cursor = 'none';
         loadAllData(id);
-    }, 3000)
+    }, 2000)
 }
 
