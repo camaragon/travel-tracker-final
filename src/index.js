@@ -60,7 +60,7 @@ function generateTraveler(allTravelers, trips) {
     return new Traveler(allTravelers, trips);
     }
 
-function getBookedDestination(event) {
+function getBookedDestination() {
     let all = document.getElementsByName('booked');
     all.forEach(button => {
         if (button.checked) {
