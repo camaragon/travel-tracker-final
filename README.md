@@ -62,5 +62,5 @@ Definitely the hardest 5 days of work I think I have ever put into something bef
  * Allow user to sign out of their dashboard and go back to the login page.
 
 ## Project Members
-This project was designed and implemented by [Cameron Aragon](https://github.com/caragon4695) 
+This project was designed and implemented by [Cameron Aragon](https://github.com/camaragon) 
 
